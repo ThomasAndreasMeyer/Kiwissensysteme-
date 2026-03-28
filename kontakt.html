@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kontakt & Beratung | KI Wissenssysteme Thomas Meyer</title>
+    <meta name="description" content="Buchen Sie Ihre kostenlose KI-Potenzialanalyse. Ihr direkter Draht zu maßgeschneiderten Wissenssystemen für den Mittelstand.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #0284c7;
+            --text: #334155;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--accent); }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+        }
+
+        /* Linke Spalte: Infos */
+        .contact-info h1 { font-size: 3rem; color: var(--primary); letter-spacing: -2px; line-height: 1.1; margin-bottom: 25px; }
+        .contact-info p { font-size: 1.1rem; margin-bottom: 30px; }
+
+        .info-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+        }
+        .info-card:hover { border-color: var(--accent); transform: translateX(10px); }
+        .info-icon { font-size: 1.8rem; }
+
+        /* Rechte Spalte: Formular */
+        .contact-form {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05);
+            border: 1px solid #f1f5f9;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 700; color: var(--primary); margin-bottom: 8px; font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #f1f5f9;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .form-control:focus { border-color: var(--accent); background: #f0f9ff; outline: none; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+        .submit-btn:hover { background: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3); }
+
+        .trust-badge {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .contact-container { grid-template-columns: 1fr; }
+            .contact-info { text-align: center; }
+            .info-card { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">KI<span> Wissenssysteme</span></a>
+        <a href="index.html" style="text-decoration:none; color:var(--primary); font-weight:600;">Zurück</a>
+    </nav>
+
+    <main class="contact-container animate__animated animate__fadeIn">
+        
+        <div class="contact-info">
+            <h1>Lassen Sie uns Ihre <span style="color:var(--accent)">KI-Strategie</span> planen.</h1>
+            <p>In einem 15-minütigen Erstgespräch klären wir, wie viel Zeit und Ressourcen Ihre Firma durch ein internes Wissenssystem einsparen kann.</p>
+            
+            <div class="info-card">
+                <div class="info-icon">📧</div>
+                <div>
+                    <strong>Direkter Kontakt</strong><br>
+                    <a href="mailto:beratung@ki-wissenssysteme.de" style="color:var(--accent); text-decoration:none;">beratung@ki-wissenssysteme.de</a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">📍</div>
+                <div>
+                    <strong>Sitz der Agentur</strong><br>
+                    Thomas Meyer | Standort Ingolstadt
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">🛡️</div>
+                <div>
+                    <strong>Datenschutz-Garantie</strong><br>
+                    Ihre Anfrage wird verschlüsselt und absolut vertraulich behandelt.
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form animate__animated animate__fadeInRight">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Vollständiger Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Vor- und Nachname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Geschäftliche E-Mail</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="name@firma.de" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="branche">Branche</label>
+                    <select id="branche" name="branche" class="form-control">
+                        <option value="pflege">Pflege & Gesundheit</option>
+                        <option value="handwerk">Handwerk & Bau</option>
+                        <option value="industrie">Industrie & Produktion</option>
+                        <option value="andere">Andere Dienstleistung</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Wie können wir Ihnen helfen?</label>
+                    <textarea id="message" name="message" class="form-control" rows="5" placeholder="Beschreiben Sie kurz Ihre aktuelle Herausforderung..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Analyse-Gespräch anfragen</button>
+                
+                <div class="trust-badge">
+                    <span>🔒</span> SSL-verschlüsselt & DSGVO-konform
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <footer style="padding: 40px; text-align: center; border-top: 1px solid #e2e8f0; margin-top: 40px;">
+        <p>© 2026 Thomas Meyer | KI Wissenssysteme</p>
+    </footer>
+
+</body>
+</html>
