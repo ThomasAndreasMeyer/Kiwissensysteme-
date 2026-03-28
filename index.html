@@ -17,7 +17,12 @@
             --accent: #0284c7;     /* Professional Blue */
             --glow: #7dd3fc;       /* Tech Glow */
             --bg-soft: #fcfdfe;
-            --transition: all 0.3s ease-in-out;
+            /* BEWUSSTER HOVER-ANSATZ: 
+               Wir nutzen cubic-bezier für eine 'organische' Beschleunigung/Verzögerung.
+               Das wirkt hochwertiger als ein einfaches 'ease'.
+            */
+            --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-fast: all 0.2s ease-in-out;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,9 +32,10 @@
             background-color: var(--bg-soft);
             color: var(--primary);
             line-height: 1.6;
+            overflow-x: hidden; /* Verhindert Scrollbars bei Einflug-Animationen */
         }
 
-        /* Header & Navigation */
+        /* --- Header & Navigation mit Hover-Effekten --- */
         nav {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(15px);
@@ -51,6 +57,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        /* HOVER: Logo skaliert leicht und der Glow wird stärker */
+        .logo:hover {
+            transform: scale(1.02);
         }
 
         .logo-icon {
@@ -59,7 +71,13 @@
             background: var(--accent);
             border-radius: 8px;
             display: inline-block;
-            box-shadow: 0 0 15px var(--glow);
+            box-shadow: 0 0 10px var(--glow);
+            transition: var(--transition-smooth);
+        }
+
+        .logo:hover .logo-icon {
+            box-shadow: 0 0 20px var(--glow);
+            transform: rotate(-5deg); /* Kleiner, unerwarteter Twist */
         }
 
         .logo span { color: var(--accent); }
@@ -70,12 +88,35 @@
             font-weight: 600;
             margin-left: 25px;
             font-size: 0.95rem;
-            transition: var(--transition);
+            position: relative; /* Für den Unterstreich-Effekt */
+            padding: 5px 0;
+            transition: var(--transition-fast);
         }
 
-        .nav-links a:hover { color: var(--accent); }
+        /* HOVER: Navigations-Links mit 'Einflug'-Unterstreichung */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent);
+            transform: scaleX(0); /* Startet unsichtbar */
+            transform-origin: right;
+            transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
 
-        /* Hero Section */
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1); /* Fliegt von rechts ein */
+            transform-origin: left;
+        }
+
+        /* --- Hero Section --- */
         .hero {
             padding: 140px 5% 100px;
             background: radial-gradient(circle at 10% 20%, rgba(2, 132, 199, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
@@ -95,6 +136,268 @@
             margin: 0 auto 40px;
             font-size: 1.3rem;
             color: #475569;
+        }
+
+        /* --- Buttons mit Hover-Effekten --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 20px 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition-smooth);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+            position: relative;
+            overflow: hidden; /* Für den 'Glanz'-Effekt */
+            z-index: 1;
+        }
+
+        /* HOVER: Button wird größer, Schatten tiefer */
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2);
+            background: var(--accent);
+        }
+
+        /* Einfliegender 'Glanz'-Effekt auf dem Button */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.6s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%; /* Fliegt einmal quer drüber */
+        }
+
+        /* --- Content Sections --- */
+        .section { padding: 100px 5%; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        /* --- Cards mit 'Einflug'-Hover --- */
+        .card {
+            background: white;
+            padding: 45px;
+            border-radius: 28px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
+            transition: var(--transition-smooth);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HOVER: Card hebt sich ab, Rand wird farbig, Schatten tief */
+        .card:hover {
+            transform: translateY(-10px) scale(1.01);
+            border-color: rgba(2, 132, 199, 0.2);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+        }
+
+        /* Einfliegender Farbakzent-Balken oben auf der Card */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0px; /* Startet unsichtbar */
+            background: var(--accent);
+            border-radius: 28px 28px 0 0;
+            transition: var(--transition-smooth);
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .card:hover::after {
+            height: 6px; /* Fliegt von oben ein */
+            opacity: 1;
+        }
+
+        .floating-emoji {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 25px;
+            animation: float 4s ease-in-out infinite;
+            transition: var(--transition-smooth);
+        }
+
+        /* HOVER: Emoji reagiert auf die Card */
+        .card:hover .floating-emoji {
+            transform: scale(1.1) rotate(5deg);
+            animation-play-state: paused; /* Stoppt das Schweben */
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-12px) rotate(5deg); }
+        }
+
+        /* --- Chat UI Mockup --- */
+        .chat-mockup {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            text-align: left;
+            transition: var(--transition-smooth);
+        }
+
+        /* HOVER: Chat-Mockup wird dunkler */
+        .card:hover .chat-mockup {
+            background: #f1f5f9;
+            border-color: var(--glow);
+        }
+
+        .chat-bot { color: var(--accent); font-weight: 700; margin-bottom: 5px; display: block; }
+
+        /* --- Branchen Sektion --- */
+        .branche-tag {
+            background: #f1f5f9; 
+            padding: 12px 25px; 
+            border-radius: 50px; 
+            font-weight: 600;
+            transition: var(--transition-fast);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* HOVER: Branchen-Tags fliegen leicht hoch und werden farbig */
+        .branche-tag:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(2, 132, 199, 0.2);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 5% 40px;
+            text-align: center;
+        }
+
+        .legal-links a { 
+            color: #94a3b8; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-size: 0.85rem; 
+            transition: var(--transition-fast);
+        }
+
+        /* HOVER: Footer-Links fliegen leicht hoch */
+        .legal-links a:hover {
+            color: var(--glow);
+            transform: translateY(-2px);
+            display: inline-block; /* Notwendig für transform */
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Mobile Menu would go here */
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon"></div>
+            KI<span> Wissenssysteme</span>
+        </a>
+        <div class="nav-links">
+            <a href="#vorteile">Vorteile</a>
+            <a href="#branchen">Branchen</a>
+            <a href="#sicherheit">Sicherheit</a>
+            <a href="#kontakt">Potenzialanalyse</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 class="animate__animated animate__fadeIn">Menschliches Wissen. <br><span style="color:var(--accent)">Digitale Geschwindigkeit.</span></h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">
+            In jedem Unternehmen steckt unschätzbares Wissen – oft versteckt in Dokumenten oder Köpfen. 
+            <strong>KI Wissenssysteme</strong> macht dieses Know-how für Ihr Team sofort abrufbar. Präzise, sicher und rund um die Uhr.
+        </p>
+        <a href="#kontakt" class="btn animate__animated animate__pulse animate__infinite">
+            Kostenloses Strategiegespräch buchen 👋
+        </a>
+    </header>
+
+    <section id="vorteile" class="section">
+        <div class="grid">
+            <div class="card">
+                <span class="floating-emoji">🤖</span>
+                <h3>Intelligente Assistenten</h3>
+                <p>Wir bauen KI-Systeme, die Ihre internen Unterlagen "lesen" und Fragen Ihrer Mitarbeiter wie ein erfahrener Kollege beantworten.</p>
+                <div class="chat-mockup">
+                    <span class="chat-bot">KI-Assistent:</span>
+                    "Die Wartung für Gerät B-200 muss alle 500 Betriebsstunden erfolgen. Hier ist der Link zum Protokoll." ✨
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="floating-emoji">⏳</span>
+                <h3>Zeit zurückgewinnen</h3>
+                <p>Verringern Sie Suchzeiten um bis zu 80%. Ihre Fachkräfte können sich endlich wieder auf das Kerngeschäft konzentrieren statt auf Datei-Recherche.</p>
+            </div>
+
+            <div class="card">
+                <span class="floating-emoji">🛡️</span>
+                <h3>Echte Datensouveränität</h3>
+                <p>Keine Public-Cloud-Risiken. Ihr Wissen bleibt in Ihrem Unternehmen. Wir nutzen modernste Verschlüsselung und DSGVO-konforme Serverstandorte.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="branchen" class="section" style="background: white; border-radius: 60px;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Für wen wir arbeiten 🤝</h2>
+            <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 50px;">
+                Egal ob Pflegeeinrichtung, Handwerksbetrieb oder Ingenieurbüro – wir skalieren Wissensmanagement für den Mittelstand.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <span class="branche-tag">🏥 Pflege & Gesundheit</span>
+                <span class="branche-tag">🏗️ Bau & Handwerk</span>
+                <span class="branche-tag">⚙️ Produktion</span>
+                <span class="branche-tag">⚖️ Kanzleien</span>
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontakt">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Bereit für das Wissens-Upgrade?</h2>
+        <p style="opacity: 0.8; margin-bottom: 40px;">Lassen Sie uns in einem 15-minütigen Call prüfen, wie viel Zeit Ihre Firma sparen kann.</p>
+        <a href="mailto:beratung@ki-wissenssysteme.de" class="btn" style="background: var(--accent);">Jetzt Termin anfragen ☕</a>
+        
+        <div style="margin-top: 80px; opacity: 0.5; font-size: 0.9rem;">
+            <p><strong>KI Wissenssysteme</strong> | Inhaber: Thomas Meyer</p>
+            <div class="legal-links" style="margin-top: 20px;">
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
         }
 
         /* Buttons */
