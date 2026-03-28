@@ -2,212 +2,310 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KI Wissenssysteme | Intelligente Enterprise-Lösungen für KMU</title>
     
-    <title>KI Wissenssysteme | Intelligente Lösungen für den Mittelstand</title>
-    <meta name="description" content="KI Wissenssysteme verwandelt Ihr Firmenwissen in einen digitalen Mentor. Maßgeschneidert für KMU, Pflege & Handwerk. Jetzt Effizienz steigern!">
+    <meta name="description" content="KI Wissenssysteme für den Mittelstand. DSGVO-konforme interne KI-Assistenten für Dokumente, Richtlinien und Prozesswissen.">
+    <meta name="author" content="Thomas Meyer">
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #0284c7;
-            --glow: #7dd3fc;
-            --bg-soft: #f8fafc;
-            --card-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            --primary: #0f172a;    /* Navy Dark */
+            --accent: #0284c7;     /* Ocean Blue */
+            --soft-blue: #f0f9ff;
+            --text-main: #334155;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.8);
             --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-soft);
-            color: var(--primary);
+            background: #f8fafc;
+            color: var(--text-main);
             line-height: 1.7;
         }
 
         /* --- NAVIGATION --- */
         nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            position: fixed;
-            top: 0; width: 100%; z-index: 2000;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 1rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .logo { 
-            font-weight: 800; font-size: 1.4rem; color: var(--primary); text-decoration: none;
-            display: flex; align-items: center; gap: 10px;
+            font-weight: 800; font-size: 1.3rem; color: var(--primary); text-decoration: none; 
+            display: flex; align-items: center; gap: 8px;
         }
         .logo span { color: var(--accent); }
-        .logo-box { width: 30px; height: 30px; background: var(--accent); border-radius: 8px; box-shadow: 0 0 15px var(--glow); }
+        .logo-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 2px; }
 
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { 
-            text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.95rem; 
-            transition: var(--transition); position: relative;
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a {
+            text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem;
+            transition: var(--transition);
         }
         .nav-links a:hover { color: var(--accent); }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px;
-            background: var(--accent); transform: scaleX(0); transition: transform 0.3s;
-        }
-        .nav-links a:hover::after { transform: scaleX(1); }
 
         /* --- HERO --- */
-        .hero {
-            padding: 180px 5% 100px;
+        header {
+            background: radial-gradient(circle at top right, #e0f2fe, #f8fafc 50%);
+            padding: 160px 5% 100px;
             text-align: center;
-            background: radial-gradient(circle at top right, #e0f2fe, transparent 50%);
-        }
-        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: -2px; line-height: 1.1; margin-bottom: 25px; }
-        .hero p { max-width: 800px; margin: 0 auto 40px; font-size: 1.25rem; color: #475569; }
-
-        .btn {
-            display: inline-flex; align-items: center; padding: 18px 38px;
-            background: var(--primary); color: white; border-radius: 14px;
-            text-decoration: none; font-weight: 700; transition: var(--transition);
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
-        }
-        .btn:hover { transform: translateY(-3px) scale(1.02); background: var(--accent); box-shadow: 0 15px 30px rgba(2, 132, 199, 0.3); }
-
-        /* --- LEISTUNGEN SECTION --- */
-        .section { padding: 100px 5%; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.8rem; letter-spacing: -1px; margin-bottom: 15px; }
-
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
         }
 
-        .service-card {
-            background: white; padding: 45px; border-radius: 28px;
-            border: 1px solid #f1f5f9; transition: var(--transition);
-            position: relative; overflow: hidden;
+        header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
         }
-        .service-card:hover { transform: translateY(-12px); border-color: var(--accent); box-shadow: var(--card-shadow); }
+
+        header p {
+            font-size: 1.25rem;
+            max-width: 750px;
+            margin: 0 auto 40px;
+            color: #64748b;
+        }
+
+        /* --- COMPONENTS --- */
+        .section { max-width: 1200px; margin: auto; padding: 100px 20px; }
         
-        .service-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
-            background: var(--accent); transform: scaleX(0); transition: transform 0.4s;
-        }
-        .service-card:hover::before { transform: scaleX(1); }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
 
-        .icon-circle {
-            width: 70px; height: 70px; background: #f0f9ff; border-radius: 20px;
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #f1f5f9;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: var(--accent);
+        }
+
+        .card h3 { margin-bottom: 15px; color: var(--primary); font-size: 1.4rem; }
+
+        .icon-box {
+            width: 50px; height: 50px; background: var(--soft-blue); border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 2.5rem; margin-bottom: 25px; transition: var(--transition);
+            font-size: 1.5rem; margin-bottom: 20px; transition: var(--transition);
         }
-        .service-card:hover .icon-circle { background: var(--accent); transform: rotate(10deg); }
+        .card:hover .icon-box { background: var(--accent); color: white; transform: rotate(10deg); }
 
-        /* --- BLOG PREVIEW --- */
-        .blog-preview { background: white; border-radius: 60px 60px 0 0; }
-        .blog-card { border-radius: 20px; overflow: hidden; border: 1px solid #f1f5f9; transition: var(--transition); }
-        .blog-card:hover { transform: scale(1.02); box-shadow: var(--card-shadow); }
-        .blog-img { height: 180px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-        .blog-body { padding: 25px; }
+        .demo-box {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 25px;
+            border-left: 4px solid var(--accent);
+            margin-top: 20px;
+        }
 
-        /* --- FOOTER --- */
-        footer { background: var(--primary); color: white; padding: 100px 5% 40px; text-align: center; }
-        .footer-links { margin: 40px 0; display: flex; justify-content: center; gap: 30px; }
-        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
-        .footer-links a:hover { color: var(--glow); }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 32px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
+        }
+
+        .button:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(2, 132, 199, 0.3);
+        }
+
+        /* --- SPECIFIC SECTIONS --- */
+        #problem { background: white; border-radius: 60px 60px 0 0; }
+        
+        .badge {
+            background: var(--soft-blue); color: var(--accent);
+            padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 800;
+            display: inline-block; margin-bottom: 15px;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 5% 40px;
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 50px;
+            max-width: 1200px; margin: 0 auto 50px;
+        }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; }
+            header { padding-top: 120px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo">
-            <div class="logo-box"></div>
+        <a href="#" class="logo">
+            <div class="logo-dot"></div>
             KI<span> Wissenssysteme</span>
         </a>
-        <ul class="nav-links">
-            <li><a href="#leistungen">Leistungen</a></li>
-            <li><a href="ki-wissenssysteme-fuer-pflege.html">Branchen</a></li>
-            <li><a href="blog-ki-wissen-aktuell.html">Blog</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
+        <div class="nav-links">
+            <a href="#problem">Vorteile</a>
+            <a href="#technologie">Technologie</a>
+            <a href="#beispiele">Branchen</a>
+            <a href="#leistungen">Services</a>
+            <a href="#kontakt">Kontakt</a>
+        </div>
     </nav>
 
-    <header class="hero">
-        <h1 class="animate__animated animate__fadeInDown">Ihr Firmenwissen. <br><span style="color:var(--accent)">Intelligent vernetzt.</span></h1>
-        <p class="animate__animated animate__fadeInUp animate__delay-1s">
-            Wir transformieren verstreute Dokumente in ein zentrales KI-Gehirn. Damit Ihre Mitarbeiter Antworten finden, bevor sie suchen müssen.
+    <header>
+        <h1 class="animate__animated animate__fadeInDown">Menschliches Wissen. <br><span style="color:var(--accent)">Digitale Geschwindigkeit.</span></h1>
+        <p class="animate__animated animate__fadeInUp">
+            Verwandeln Sie verstreute Dokumente und Richtlinien in einen zentralen, intelligenten Firmen-Assistenten. 100% DSGVO-konform für den deutschen Mittelstand.
         </p>
-        <a href="#kontakt" class="btn">Kostenlose Erstberatung 👋</a>
+        <div class="animate__animated animate__fadeInUp animate__delay-1s">
+            <a class="button" href="#kontakt">Kostenlose Potenzialanalyse 👋</a>
+        </div>
     </header>
 
-    <section id="leistungen" class="section">
-        <div class="section-header">
-            <h2>Unsere Leistungen</h2>
-            <p>Maßgeschneiderte KI-Strategien für den digitalen Vorsprung.</p>
+    <section id="problem" class="section">
+        <div class="section-title">
+            <span class="badge">DIE HERAUSFORDERUNG</span>
+            <h2>Wissen finden statt suchen</h2>
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="icon-circle">🧠</div>
-                <h3>KI-Wissensdatenbanken</h3>
-                <p>Wir strukturieren Ihr internes Wissen (PDFs, Handbücher, Protokolle) und machen es per Chat für alle Mitarbeiter sofort abrufbar.</p>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box">📂</div>
+                <h3>Verstreute Daten</h3>
+                <p>Wissen liegt oft isoliert in PDFs, E-Mails und veralteten Ordnern. Wir führen alles zusammen.</p>
             </div>
-            <div class="service-card">
-                <div class="icon-circle">🚀</div>
-                <h3>Automatisierung von Prozessen</h3>
-                <p>Routineaufgaben in der Verwaltung oder Dokumentation werden durch intelligente KI-Agenten übernommen.</p>
+            <div class="card">
+                <div class="icon-box">⏳</div>
+                <h3>Zeitverlust</h3>
+                <p>Mitarbeiter verlieren bis zu 20% ihrer Zeit mit der Suche nach Informationen. Wir machen es in Sekunden möglich.</p>
             </div>
-            <div class="service-card">
-                <div class="icon-circle">🛡️</div>
-                <h3>Datenschutz & Sicherheit</h3>
-                <p>Wir implementieren lokale oder isolierte KI-Modelle, die zu 100% DSGVO-konform arbeiten. Ihre Daten bleiben Ihr Eigentum.</p>
+            <div class="card">
+                <div class="icon-box">🧠</div>
+                <h3>Wissensverlust</h3>
+                <p>Wenn Experten das Unternehmen verlassen, geht Wissen verloren. Unsere KI sichert Ihr Firmen-Know-how dauerhaft.</p>
             </div>
         </div>
     </section>
 
-    <section id="blog" class="section blog-preview">
-        <div class="section-header">
-            <h2>Aktuelles aus der KI-Welt</h2>
+    <section id="lösung" class="section">
+        <div class="section-title">
+            <span class="badge">INTERAKTIVE DEMO</span>
+            <h2>So antwortet Ihr KI-System</h2>
         </div>
-        <div class="services-grid">
-            <article class="blog-card">
-                <div class="blog-img">📈</div>
-                <div class="blog-body">
-                    <span style="color:var(--accent); font-weight:800; font-size:0.8rem;">REACH</span>
-                    <h4>KI im Mittelstand 2026</h4>
-                    <p>Warum jetzt der perfekte Zeitpunkt für die Umstellung ist.</p>
-                </div>
-            </article>
-            <article class="blog-card">
-                <div class="blog-img">🏢</div>
-                <div class="blog-body">
-                    <span style="color:var(--accent); font-weight:800; font-size:0.8rem;">WORKFLOW</span>
-                    <h4>Effizienz im Handwerk</h4>
-                    <p>Wie digitale Assistenten die Baustelle revolutionieren.</p>
-                </div>
-            </article>
+        <div class="card animate__animated animate__fadeIn">
+            <p>Ein interner KI-Assistent versteht den Kontext Ihrer Dokumente und liefert präzise Anweisungen für Ihr Personal:</p>
+            <div class="demo-box">
+                <p style="color:var(--accent); font-weight:800; margin-bottom:10px;">Mitarbeiter fragt:</p>
+                <p><em>"Wie reagiere ich bei einem IT-Systemausfall am Wochenende?"</em></p>
+                <hr style="margin:15px 0; border:0; border-top:1px solid #cbd5e1;">
+                <p style="color:var(--primary); font-weight:800; margin-bottom:10px;">KI-Antwort (basiert auf Ihrer IT-Richtlinie):</p>
+                <ol style="margin-left:20px;">
+                    <li>Bereitschaftsdienst unter +49 123 456 anrufen.</li>
+                    <li>Ticket im System mit Priorität "Kritisch" erstellen.</li>
+                    <li>Geschäftsführung per SMS informieren.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section id="technologie" class="section">
+        <div class="section-title">
+            <h2>Unsere Kerntechnologie</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box">🔍</div>
+                <h3>Semantische Analyse</h3>
+                <p>Unser System sucht nicht nach Wörtern, sondern versteht die Bedeutung Ihrer Fragen.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box">🛡️</div>
+                <h3>DSGVO-First</h3>
+                <p>Ihre Daten bleiben in Deutschland oder auf Ihren Servern. Kein Training öffentlicher KI-Modelle.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box">🔗</div>
+                <h3>Nahtlose Integration</h3>
+                <p>Einfache Anbindung an bestehende Datei-Server, Sharepoints oder Cloud-Speicher.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="beispiele" class="section">
+        <div class="section-title">
+            <h2>Branchen-Lösungen</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="badge">PFLEGE & GESUNDHEIT</div>
+                <p>Sofortiger Zugriff auf Pflegehandbücher, Sturzprotokolle und Brandschutzvorschriften für das Personal.</p>
+            </div>
+            <div class="card">
+                <div class="badge">HANDWERK & INDUSTRIE</div>
+                <p>Maschinen-Handbücher und Wartungsintervalle direkt auf das Smartphone der Techniker.</p>
+            </div>
+            <div class="card">
+                <div class="badge">KMU & KANZLEIEN</div>
+                <p>Schnellrecherche in Prozesshandbüchern, Verträgen und internen Standards.</p>
+            </div>
         </div>
     </section>
 
     <footer id="kontakt">
-        <h2>Bereit für den nächsten Schritt?</h2>
-        <p style="margin: 20px 0 40px; opacity: 0.7;">Thomas Meyer | KI Wissenssysteme</p>
-        <a href="mailto:beratung@ki-wissenssysteme.de" class="btn" style="background:var(--accent)">Projekt anfragen</a>
-        
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="#leistungen">Leistungen</a>
-            <a href="#">Impressum</a>
-            <a href="#">Datenschutz</a>
+        <div class="footer-grid">
+            <div>
+                <h3 style="margin-bottom:20px;">KI Wissenssysteme</h3>
+                <p style="opacity:0.7;">Wir machen Wissen nutzbar. Effizient, sicher und zukunftsorientiert.</p>
+            </div>
+            <div>
+                <h3 style="margin-bottom:20px;">Kontakt</h3>
+                <p style="opacity:0.7;">Thomas Meyer</p>
+                <p style="opacity:0.7;">Email: beratung@ki-wissenssysteme.de</p>
+            </div>
+            <div>
+                <a href="mailto:beratung@ki-wissenssysteme.de" class="button" style="background:var(--accent)">Jetzt anfragen</a>
+            </div>
         </div>
-        <p style="font-size: 0.8rem; opacity: 0.4;">© 2026 KI Wissenssysteme. Alle Rechte vorbehalten.</p>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.8rem; opacity: 0.5;">
+            <p>© 2026 KI Wissenssysteme | Thomas Meyer. Alle Rechte vorbehalten.</p>
+            <p style="margin-top:10px;"><a href="#" style="color:white; margin:0 10px;">Impressum</a> | <a href="#" style="color:white; margin:0 10px;">Datenschutz</a></p>
+        </div>
     </footer>
 
 </body>
