@@ -1,103 +1,292 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITServicesMeyer | KI-Wissenssysteme für KMU</title>
+    <meta name="description" content="ITServicesMeyer macht Ihr Unternehmenswissen per KI sofort abrufbar. Effiziente Lösungen für Pflege, Handwerk und Mittelstand.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        :root {
+            --primary: #1e293b; /* Deep Trust Blue */
+            --accent: #3b82f6;  /* Modern Action Blue */
+            --success: #10b981; /* Safety Green */
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+        }
 
-<title>KI-Wissenssysteme für Unternehmen</title>
+        * { box-sizing: border-box; }
 
-<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#f5f7fa;
-color:#333;
-}
+        /* --- Navigation --- */
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
 
-header{
-background:#1e2a38;
-color:white;
-padding:40px;
-text-align:center;
-}
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
 
-header h1{
-margin:0;
-font-size:40px;
-}
+        nav a:hover { color: var(--accent); }
 
-nav{
-background:#2f3f52;
-padding:10px;
-text-align:center;
-}
+        /* --- Hero Section --- */
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-font-weight:bold;
-}
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
 
-section{
-max-width:1000px;
-margin:auto;
-padding:40px;
-}
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 20px auto;
+        }
 
-h2{
-color:#1e2a38;
-}
+        /* --- Layout & Cards --- */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
 
-.card{
-background:white;
-padding:25px;
-margin:20px 0;
-border-radius:8px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
 
-.demo{
-background:#eef3ff;
-padding:20px;
-border-left:5px solid #4a6cf7;
-margin-top:15px;
-}
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
 
-.button{
-display:inline-block;
-padding:12px 20px;
-background:#4a6cf7;
-color:white;
-text-decoration:none;
-border-radius:6px;
-margin-top:15px;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
 
-footer{
-background:#1e2a38;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-</style>
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
 
+        /* --- Special Elements --- */
+        .demo-box {
+            background: #f1f5f9;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid var(--accent);
+            margin: 20px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        /* --- Moving Emojis --- */
+        .floating-emoji {
+            display: inline-block;
+            animation: pulseEmoji 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseEmoji {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2) rotate(5deg); }
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+    </style>
 </head>
-
 <body>
 
-<header>
+    <nav>
+        <a href="#problem">Problem</a>
+        <a href="#lösung">Lösung</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#beispiele">Praxis</a>
+        <a href="#datenschutz">Datenschutz</a>
+        <a href="#vorlagen">Geschenke ✨</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
 
-<h1>KI-Wissenssysteme für kleine Unternehmen</h1>
+    <header>
+        <h1 class="animate__animated animate__fadeInDown">ITServicesMeyer 💡</h1>
+        <p class="animate__animated animate__fadeInUp">Wir machen Ihr Unternehmenswissen intelligent nutzbar. Damit Ihre Mitarbeiter Antworten finden, statt zu suchen.</p>
+        <a href="#kontakt" class="button animate__animated animate__pulse animate__infinite">Jetzt Erstgespräch sichern 👋</a>
+    </header>
 
-<p>
-Schneller Zugriff auf Unternehmenswissen – mit KI
-</p>
+    <section id="problem">
+        <h2>Die Zeitfalle im Alltag ⏳</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="floating-emoji" style="font-size: 2rem;">🔍</span>
+                <h3>Informationschaos</h3>
+                <p>Wissen ist in PDFs, E-Mails und Köpfen verteilt. Das Suchen kostet KMUs im Schnitt 20% der Arbeitszeit.</p>
+            </div>
+            <div class="card">
+                <span class="floating-emoji" style="font-size: 2rem;">⚠️</span>
+                <h3>Fehlerrisiko</h3>
+                <p>Veraltete Handbücher oder mündliche Überlieferungen führen zu Fehlern in der Produktion oder Pflege.</p>
+            </div>
+        </div>
+    </section>
 
-</header>
+    <section id="lösung" style="background: #eff6ff; border-radius: 100px 0 100px 0;">
+        <h2>Die Lösung: Ihr Firmen-Gehirn 🧠</h2>
+        <div class="card" style="max-width: 800px; margin: auto;">
+            <div class="badge">KI-POWER</div>
+            <p>Ein KI-Wissenssystem ist wie ein Mentor, der alles weiß, was jemals in Ihrer Firma aufgeschrieben wurde. Sicher, schnell und rund um die Uhr verfügbar.</p>
+            <div class="demo-box">
+                <strong>💬 Mitarbeiter fragt:</strong> "Wie ist der Ablauf bei einem Sturz in Zimmer 4?"<br>
+                <strong>🤖 KI antwortet sofort:</strong> "1. Bewohner sichern, 2. Notruf/Pflegeleitung informieren, 3. Sturzprotokoll digital ausfüllen."
+            </div>
+        </div>
+    </section>
+
+    <section id="leistungen">
+        <h2>Full-Service Beratung 🛠️</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>1. Analyse & Strategie</h3>
+                <p>Wir prüfen, welche Daten vorhanden sind und wie KI am schnellsten hilft.</p>
+            </div>
+            <div class="card">
+                <h3>2. Aufbau & Integration</h3>
+                <p>Wir bauen Ihr privates KI-System – ohne dass Ihre Daten im Internet landen.</p>
+            </div>
+            <div class="card">
+                <h3>3. Schulung</h3>
+                <p>Wir nehmen Ihr Team an die Hand, damit jeder die KI spielend leicht bedienen kann.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vorlagen" style="text-align: center;">
+        <div class="card" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);">
+            <h2>Kostenlose Vorlagen für Sie 🎁</h2>
+            <p>Starten Sie sofort mit unseren geprüften Strukturen:</p>
+            <div class="grid" style="text-align: left;">
+                <ul>
+                    <li>✅ Notfallplan-Vorlage</li>
+                    <li>✅ IT-Dokumentations-Struktur</li>
+                </ul>
+                <ul>
+                    <li>✅ Brandschutz-Checkliste</li>
+                    <li>✅ DSGVO-Leitfaden für KI</li>
+                </ul>
+            </div>
+            <br>
+            <a href="#kontakt" class="button">Vorlagen anfordern</a>
+        </div>
+    </section>
+
+    <section id="datenschutz">
+        <h2>Sicherheit steht an erster Stelle 🛡️</h2>
+        <div class="card">
+            <p>Vertrauen ist die Basis. Deshalb arbeiten wir nach dem <strong>Privacy-by-Design</strong> Prinzip:</p>
+            <ul>
+                <li>Hosting auf europäischen Servern</li>
+                <li>Kein Training öffentlicher KIs mit Ihren Daten</li>
+                <li>Vollständige DSGVO-Konformität</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer id="kontakt">
+        <h2>Lassen Sie uns sprechen! ☕</h2>
+        <p>In 15 Minuten klären wir, ob ein KI-System für Sie sinnvoll ist.</p>
+        <p><strong>Thomas Meyer</strong><br>ITServicesMeyer<br>E-Mail: <a href="mailto:thomas@example.de" style="color: #60a5fa;">thomas@example.de</a></p>
+        <br>
+        <a href="mailto:thomas@example.de" class="button">E-Mail schreiben</a>
+        <p style="margin-top: 50px; opacity: 0.6; font-size: 0.8rem;">© 2026 ITServicesMeyer | Modernes Wissensmanagement für den Mittelstand</p>
+    </footer>
+
+</body>
+</html>
 
 
 <nav>
