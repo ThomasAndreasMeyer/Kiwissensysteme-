@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITServicesMeyer | KI-Wissenssysteme für den Mittelstand</title>
+    <meta name="description" content="ITServicesMeyer hilft KMUs mit maßgeschneiderten KI-Wissenssystemen. Effizienz steigern durch intelligente Beratung und moderne KI-Lösungen.">
+    <meta name="keywords" content="KI für KMU, Wissensmanagement, Künstliche Intelligenz Beratung, ITServicesMeyer, KI-Systeme">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --text-light: #f8fafc;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: var(--primary);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #a855f7;
+        }
+
+        .hero {
+            padding: 100px 5%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #cbd5e1;
+        }
+
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 80px 5%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 5px solid #a855f7;
+        }
+
+        .emoji-box {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        /* Responsive Anpassung */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ITServices<span>Meyer</span></div>
+    </header>
+
+    <section class="hero">
+        <h1 class="animate__animated animate__fadeInDown">
+            Verwandeln Sie Daten in Wissen. ✨
+        </h1>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">
+            Wir bauen die Brücke zwischen Ihrem Unternehmen und der Zukunft. Mit maßgeschneiderten KI-Wissenssystemen entlasten wir Ihr Team und sichern wertvolles Know-how. 🚀
+        </p>
+        <a href="#kontakt" class="cta-button animate__animated animate__pulse animate__infinite">Kostenlose Beratung anfragen 👋</a>
+    </section>
+
+    <section class="section">
+        <h2 style="text-align: center; font-size: 2.5rem;">Wie wir Sie unterstützen 💡</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="emoji-box floating">🧠</span>
+                <h3>KI-Wissenssysteme</h3>
+                <p>Nie wieder Informationen suchen. Wir erstellen interne Chatbots, die auf Ihre Firmendaten zugreifen – sicher und DSGVO-konform.</p>
+            </div>
+            <div class="card">
+                <span class="emoji-box floating" style="animation-delay: 0.5s;">🤝</span>
+                <h3>Strategische Beratung</h3>
+                <p>Wir begleiten KMUs bei der digitalen Transformation. Gemeinsam finden wir heraus, wo KI Ihren Arbeitsalltag wirklich erleichtert.</p>
+            </div>
+            <div class="card">
+                <span class="emoji-box floating" style="animation-delay: 1s;">⚡</span>
+                <h3>Effizienz-Booster</h3>
+                <p>Automatisieren Sie Routineaufgaben und geben Sie Ihren Mitarbeitern den Raum für kreative Arbeit und echte Wertschöpfung.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #e2e8f0; border-radius: 50px 50px 0 0;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <span style="font-size: 4rem;">🤖</span>
+            <h2>Bereit für den nächsten Schritt?</h2>
+            <p>In der heutigen Wirtschaftswelt ist Wissen der entscheidende Wettbewerbsvorteil. <b>ITServicesMeyer</b> macht modernste KI-Technologie für den Mittelstand greifbar und menschlich.</p>
+            <br>
+            <p>Lassen Sie uns gemeinsam schauen, wie Ihre Firma von intelligenter Wissensverarbeitung profitieren kann. 📈</p>
+        </div>
+    </section>
+
+    <footer id="kontakt">
+        <p>&copy; 2026 ITServicesMeyer - Innovation für KMUs</p>
+        <p>Made with ❤️ and Intelligence.</p>
+    </footer>
+
+</body>
+</html>
