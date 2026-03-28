@@ -1,386 +1,214 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>KI Wissenssysteme | Intelligente Lösungen für den Mittelstand</title>
+    <meta name="description" content="KI Wissenssysteme verwandelt Ihr Firmenwissen in einen digitalen Mentor. Maßgeschneidert für KMU, Pflege & Handwerk. Jetzt Effizienz steigern!">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #0284c7;
+            --glow: #7dd3fc;
+            --bg-soft: #f8fafc;
+            --card-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
 
-<title>KI Wissenssysteme für Unternehmen | Internes KI System</title>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-<meta name="description" content="KI Wissenssysteme für kleine Unternehmen. Interne KI-Assistenten für Dokumente, Richtlinien und Unternehmenswissen. DSGVO-konforme Lösungen.">
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--primary);
+            line-height: 1.7;
+        }
 
-<meta name="keywords" content="KI Wissenssystem, KI Wissensmanagement, interne KI, KI Unternehmen, KI Dokumentensystem">
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0; width: 100%; z-index: 2000;
+            padding: 1rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
 
-<meta name="author" content="Thomas Meyer">
+        .logo { 
+            font-weight: 800; font-size: 1.4rem; color: var(--primary); text-decoration: none;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .logo span { color: var(--accent); }
+        .logo-box { width: 30px; height: 30px; background: var(--accent); border-radius: 8px; box-shadow: 0 0 15px var(--glow); }
 
-<meta property="og:title" content="KI Wissenssysteme für Unternehmen">
-<meta property="og:description" content="Interne KI-Assistenten für Unternehmenswissen">
-<meta property="og:type" content="website">
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { 
+            text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.95rem; 
+            transition: var(--transition); position: relative;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px;
+            background: var(--accent); transform: scaleX(0); transition: transform 0.3s;
+        }
+        .nav-links a:hover::after { transform: scaleX(1); }
 
-<link rel="canonical" href="https://thomasandreasmeyer.github.io/Kiwissensysteme-/">
+        /* --- HERO --- */
+        .hero {
+            padding: 180px 5% 100px;
+            text-align: center;
+            background: radial-gradient(circle at top right, #e0f2fe, transparent 50%);
+        }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: -2px; line-height: 1.1; margin-bottom: 25px; }
+        .hero p { max-width: 800px; margin: 0 auto 40px; font-size: 1.25rem; color: #475569; }
 
-<style>
+        .btn {
+            display: inline-flex; align-items: center; padding: 18px 38px;
+            background: var(--primary); color: white; border-radius: 14px;
+            text-decoration: none; font-weight: 700; transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+        }
+        .btn:hover { transform: translateY(-3px) scale(1.02); background: var(--accent); box-shadow: 0 15px 30px rgba(2, 132, 199, 0.3); }
 
-body{
-font-family:Arial, Helvetica, sans-serif;
-margin:0;
-background:#f4f6f8;
-color:#333;
-line-height:1.6;
-}
+        /* --- LEISTUNGEN SECTION --- */
+        .section { padding: 100px 5%; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.8rem; letter-spacing: -1px; margin-bottom: 15px; }
 
-header{
-background:#1b2a38;
-color:white;
-padding:80px 20px;
-text-align:center;
-}
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+        }
 
-header h1{
-font-size:48px;
-margin-bottom:20px;
-}
+        .service-card {
+            background: white; padding: 45px; border-radius: 28px;
+            border: 1px solid #f1f5f9; transition: var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .service-card:hover { transform: translateY(-12px); border-color: var(--accent); box-shadow: var(--card-shadow); }
+        
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+            background: var(--accent); transform: scaleX(0); transition: transform 0.4s;
+        }
+        .service-card:hover::before { transform: scaleX(1); }
 
-header p{
-font-size:20px;
-max-width:800px;
-margin:auto;
-}
+        .icon-circle {
+            width: 70px; height: 70px; background: #f0f9ff; border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; margin-bottom: 25px; transition: var(--transition);
+        }
+        .service-card:hover .icon-circle { background: var(--accent); transform: rotate(10deg); }
 
-nav{
-background:#243949;
-padding:15px;
-text-align:center;
-position:sticky;
-top:0;
-}
+        /* --- BLOG PREVIEW --- */
+        .blog-preview { background: white; border-radius: 60px 60px 0 0; }
+        .blog-card { border-radius: 20px; overflow: hidden; border: 1px solid #f1f5f9; transition: var(--transition); }
+        .blog-card:hover { transform: scale(1.02); box-shadow: var(--card-shadow); }
+        .blog-img { height: 180px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+        .blog-body { padding: 25px; }
 
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-font-weight:bold;
-}
+        /* --- FOOTER --- */
+        footer { background: var(--primary); color: white; padding: 100px 5% 40px; text-align: center; }
+        .footer-links { margin: 40px 0; display: flex; justify-content: center; gap: 30px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: var(--glow); }
 
-section{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
-}
-
-h2{
-color:#1b2a38;
-margin-bottom:20px;
-}
-
-.card{
-background:white;
-padding:30px;
-margin-bottom:25px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.demo{
-background:#eef2ff;
-padding:20px;
-border-left:5px solid #4a6cf7;
-}
-
-.button{
-display:inline-block;
-padding:14px 25px;
-background:#4a6cf7;
-color:white;
-text-decoration:none;
-border-radius:6px;
-margin-top:15px;
-}
-
-footer{
-background:#1b2a38;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-</style>
-
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-
-<h1>KI Wissenssysteme für Unternehmen</h1>
-
-<p>
-
-Interne KI-Assistenten für Dokumente, Richtlinien und Unternehmenswissen.
-
-Schneller Zugriff auf Wissen – direkt im Unternehmen.
-
-</p>
-
-<a class="button" href="#kontakt">Kostenlose Erstberatung</a>
-
-</header>
-
-<nav>
-
-<a href="#problem">Problem</a>
-<a href="#lösung">Lösung</a>
-<a href="#technologie">Technologie</a>
-<a href="#beispiele">Beispiele</a>
-<a href="#leistungen">Leistungen</a>
-<a href="#blog">Wissen</a>
-<a href="#kontakt">Kontakt</a>
-
-</nav>
-
-<section id="problem">
-
-<h2>Das Problem in vielen Unternehmen</h2>
-
-<div class="card">
-
-<p>
-
-In vielen Unternehmen ist Wissen über verschiedene Systeme verteilt:
-
-</p>
-
-<ul>
-
-<li>PDF Dokumente</li>
-<li>E-Mails</li>
-<li>Ordnerstrukturen</li>
-<li>interne Richtlinien</li>
-
-</ul>
-
-<p>
-
-Mitarbeiter verlieren täglich Zeit bei der Suche nach Informationen.
-
-KI-Wissenssysteme lösen dieses Problem.
-
-</p>
-
-</div>
-
-</section>
-
-<section id="lösung">
-
-<h2>Die Lösung: Ein internes KI Wissenssystem</h2>
-
-<div class="card">
-
-<p>
-
-Ein KI-Wissenssystem ermöglicht es Mitarbeitern,
-Fragen direkt zu stellen und Antworten aus
-Unternehmensdokumenten zu erhalten.
-
-</p>
-
-<div class="demo">
-
-<strong>Mitarbeiter fragt:</strong>
-
-<br><br>
-
-Was muss ich tun, wenn ein Bewohner stürzt?
-
-<br><br>
-
-<strong>KI Antwort:</strong>
-
-<ol>
-
-<li>Bewohner sichern</li>
-<li>Verletzungen prüfen</li>
-<li>Sturz dokumentieren</li>
-<li>Pflegeleitung informieren</li>
-
-</ol>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="technologie">
-
-<h2>Technologie hinter dem System</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Dokumenten KI</h3>
-<p>
-Die KI analysiert Unternehmensdokumente
-und macht Wissen durchsuchbar.
-</p>
-</div>
-
-<div class="card">
-<h3>Semantische Suche</h3>
-<p>
-Fragen werden inhaltlich verstanden,
-nicht nur nach Stichwörtern gesucht.
-</p>
-</div>
-
-<div class="card">
-<h3>Interner KI-Assistent</h3>
-<p>
-Mitarbeiter können Fragen direkt
-über einen Chat stellen.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="beispiele">
-
-<h2>Praxisbeispiele</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>Pflegebetrieb</h3>
-
-<ul>
-<li>Sturzprotokoll</li>
-<li>Brandschutzplan</li>
-<li>Medikamentenrichtlinien</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h3>Werkstätten</h3>
-
-<ul>
-<li>Inspektionsabläufe</li>
-<li>Ersatzteilinformationen</li>
-<li>Arbeitsanweisungen</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h3>Kleine Unternehmen</h3>
-
-<ul>
-<li>IT Dokumentation</li>
-<li>Prozesshandbücher</li>
-<li>Datenschutzrichtlinien</li>
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="leistungen">
-
-<h2>Meine Leistungen</h2>
-
-<div class="card">
-
-<ul>
-
-<li>Beratung zu KI Wissenssystemen</li>
-<li>Aufbau interner KI-Assistenten</li>
-<li>Integration von Dokumenten</li>
-<li>DSGVO-konforme Umsetzung</li>
-<li>Schulung von Mitarbeitern</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section id="blog">
-
-<h2>Wissen über KI Systeme</h2>
-
-<div class="card">
-
-<h3>Artikel (Beispiele)</h3>
-
-<ul>
-
-<li>KI Wissenssysteme für kleine Unternehmen</li>
-<li>DSGVO und KI</li>
-<li>Interne KI-Assistenten im Betrieb</li>
-<li>KI im Pflegebetrieb</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section id="kontakt">
-
-<h2>Kontakt</h2>
-
-<div class="card">
-
-<p>
-
-Interessiert an einem KI Wissenssystem?
-
-</p>
-
-<p>
-
-Schreiben Sie mir eine Nachricht:
-
-</p>
-
-<p>
-
-Email: thomas@example.de
-
-</p>
-
-<a class="button" href="mailto:thomas@example.de">
-Kontakt aufnehmen
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-
-© 2026 Thomas Meyer
-
-</p>
-
-</footer>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-box"></div>
+            KI<span> Wissenssysteme</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="ki-wissenssysteme-fuer-pflege.html">Branchen</a></li>
+            <li><a href="blog-ki-wissen-aktuell.html">Blog</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1 class="animate__animated animate__fadeInDown">Ihr Firmenwissen. <br><span style="color:var(--accent)">Intelligent vernetzt.</span></h1>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">
+            Wir transformieren verstreute Dokumente in ein zentrales KI-Gehirn. Damit Ihre Mitarbeiter Antworten finden, bevor sie suchen müssen.
+        </p>
+        <a href="#kontakt" class="btn">Kostenlose Erstberatung 👋</a>
+    </header>
+
+    <section id="leistungen" class="section">
+        <div class="section-header">
+            <h2>Unsere Leistungen</h2>
+            <p>Maßgeschneiderte KI-Strategien für den digitalen Vorsprung.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon-circle">🧠</div>
+                <h3>KI-Wissensdatenbanken</h3>
+                <p>Wir strukturieren Ihr internes Wissen (PDFs, Handbücher, Protokolle) und machen es per Chat für alle Mitarbeiter sofort abrufbar.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon-circle">🚀</div>
+                <h3>Automatisierung von Prozessen</h3>
+                <p>Routineaufgaben in der Verwaltung oder Dokumentation werden durch intelligente KI-Agenten übernommen.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon-circle">🛡️</div>
+                <h3>Datenschutz & Sicherheit</h3>
+                <p>Wir implementieren lokale oder isolierte KI-Modelle, die zu 100% DSGVO-konform arbeiten. Ihre Daten bleiben Ihr Eigentum.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="section blog-preview">
+        <div class="section-header">
+            <h2>Aktuelles aus der KI-Welt</h2>
+        </div>
+        <div class="services-grid">
+            <article class="blog-card">
+                <div class="blog-img">📈</div>
+                <div class="blog-body">
+                    <span style="color:var(--accent); font-weight:800; font-size:0.8rem;">REACH</span>
+                    <h4>KI im Mittelstand 2026</h4>
+                    <p>Warum jetzt der perfekte Zeitpunkt für die Umstellung ist.</p>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-img">🏢</div>
+                <div class="blog-body">
+                    <span style="color:var(--accent); font-weight:800; font-size:0.8rem;">WORKFLOW</span>
+                    <h4>Effizienz im Handwerk</h4>
+                    <p>Wie digitale Assistenten die Baustelle revolutionieren.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer id="kontakt">
+        <h2>Bereit für den nächsten Schritt?</h2>
+        <p style="margin: 20px 0 40px; opacity: 0.7;">Thomas Meyer | KI Wissenssysteme</p>
+        <a href="mailto:beratung@ki-wissenssysteme.de" class="btn" style="background:var(--accent)">Projekt anfragen</a>
+        
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="#leistungen">Leistungen</a>
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.4;">© 2026 KI Wissenssysteme. Alle Rechte vorbehalten.</p>
+    </footer>
 
 </body>
 </html>
