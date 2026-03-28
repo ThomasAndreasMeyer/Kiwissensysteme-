@@ -3,70 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI Wissenssysteme | Home</title>
+    
+    <title>KI Wissenssysteme | Intelligentes Wissensmanagement für den Mittelstand</title>
+    <meta name="description" content="KI Wissenssysteme verwandelt Ihr Firmenwissen in einen digitalen Mentor. DSGVO-konform, effizient & maßgeschneidert für KMU, Pflege und Handwerk.">
+    <meta name="keywords" content="KI Wissenssysteme, KI für KMU, Wissensmanagement Software, Künstliche Intelligenz Beratung, Thomas Meyer">
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #0284c7;
-            --glow: #7dd3fc;
-            --bg-soft: #fcfdfe;
-            --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            --primary: #0f172a;    /* Deep Trust Blue */
+            --accent: #0284c7;     /* Innovation Blue */
+            --glow: #7dd3fc;       /* Tech Highlight */
+            --success: #10b981;    /* Safety Green */
+            --bg-soft: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-soft);
             color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* --- MODERN NAVIGATION (Glassmorphism) --- */
         nav {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 2000;
-            padding: 0.8rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
 
         .logo { 
             font-weight: 800; 
-            font-size: 1.3rem; 
+            font-size: 1.4rem; 
             color: var(--primary); 
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            transition: var(--transition);
         }
+
+        .logo:hover { transform: scale(1.02); }
+
+        .logo-box {
+            width: 35px;
+            height: 35px;
+            background: var(--accent);
+            border-radius: 10px;
+            box-shadow: 0 0 15px var(--glow);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-box { transform: rotate(-10deg) scale(1.1); }
 
         .logo span { color: var(--accent); }
 
-        .nav-container {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        /* Menu List */
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
+        /* Menu System */
+        .nav-container { display: flex; align-items: center; gap: 40px; }
+        .nav-menu { display: flex; list-style: none; gap: 30px; }
         .nav-item { position: relative; }
 
         .nav-link {
@@ -74,27 +85,42 @@
             color: var(--primary);
             font-weight: 600;
             font-size: 0.95rem;
-            transition: var(--transition-smooth);
             padding: 10px 0;
-            display: block;
+            transition: var(--transition);
         }
 
         .nav-link:hover { color: var(--accent); }
 
-        /* Dropdown Animation */
+        /* Hover Line Effect */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+        /* Dropdown Style */
         .dropdown {
             position: absolute;
             top: 100%;
-            left: 0;
-            background: white;
-            min-width: 220px;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            left: -20px;
+            background: var(--white);
+            min-width: 280px;
+            border-radius: 18px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
             padding: 15px;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(10px);
-            transition: var(--transition-smooth);
+            transform: translateY(15px);
+            transition: var(--transition);
             border: 1px solid #f1f5f9;
         }
 
@@ -106,152 +132,274 @@
 
         .dropdown a {
             display: block;
-            padding: 10px;
+            padding: 12px 15px;
             text-decoration: none;
             color: var(--primary);
             font-size: 0.9rem;
-            border-radius: 8px;
-            transition: background 0.2s;
+            border-radius: 10px;
+            transition: var(--transition);
         }
 
         .dropdown a:hover {
             background: #f0f9ff;
             color: var(--accent);
-            padding-left: 15px; /* Einfliege-Effekt beim Hover */
+            transform: translateX(8px);
         }
 
-        /* Blog Badge */
-        .blog-badge {
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 180px 5% 100px;
+            text-align: center;
+            background: radial-gradient(circle at 50% -20%, #e0f2fe 0%, #f8fafc 60%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.3rem;
+            color: #475569;
+        }
+
+        /* CTA Button mit Hover-Glanz */
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            padding: 22px 45px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-4px) scale(1.02);
             background: var(--accent);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            vertical-align: middle;
-            margin-left: 5px;
+            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.3);
         }
 
-        /* Hamburger (für Mobile) */
-        .mobile-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
+        .btn-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.6s;
         }
 
-        /* --- Blog Preview Section --- */
-        .blog-preview {
-            padding: 100px 5%;
-            background: #f8fafc;
-        }
+        .btn-main:hover::before { left: 100%; }
 
-        .blog-grid {
+        /* --- GRID SECTIONS --- */
+        .section { padding: 100px 5%; }
+        
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
+
+        .card {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 30px;
+            border: 1px solid #f1f5f9;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 0;
+            background: var(--accent);
+            border-radius: 30px 30px 0 0;
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .card:hover::after { height: 8px; opacity: 1; }
+
+        .floating-emoji {
+            font-size: 3.5rem;
+            display: block;
+            margin-bottom: 30px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        /* --- BLOG PREVIEW --- */
+        .blog-section { background: #f1f5f9; border-radius: 60px; margin: 0 2%; }
 
         .blog-card {
-            background: white;
-            border-radius: 20px;
+            background: var(--white);
+            border-radius: 24px;
             overflow: hidden;
-            transition: var(--transition-smooth);
-            border: 1px solid #e2e8f0;
+            transition: var(--transition);
         }
 
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        .blog-card:hover { transform: scale(1.03); }
+
+        .blog-img {
+            height: 200px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
         }
 
-        .blog-content { padding: 25px; }
-        .blog-tag { color: var(--accent); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; }
-        .blog-title { margin: 10px 0; font-size: 1.25rem; }
+        .blog-body { padding: 30px; }
 
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 100px 5% 50px;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover { color: var(--glow); transform: translateY(-3px); }
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 992px) {
             .nav-menu { display: none; }
-            .mobile-toggle { display: block; }
+            .hero h1 { font-size: 3rem; }
         }
-
-        .btn-cta {
-            background: var(--primary);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: var(--transition-smooth);
-        }
-
-        .btn-cta:hover { background: var(--accent); transform: scale(1.05); }
-
     </style>
 </head>
 <body>
 
     <nav>
         <a href="index.html" class="logo">
-            <div style="width:12px; height:12px; background:var(--accent); border-radius:3px;"></div>
+            <div class="logo-box"></div>
             KI<span> Wissenssysteme</span>
         </a>
 
         <div class="nav-container">
-             <class="nav-menu">
-    <li claulss="nav-item">
-        <a href="#" class="nav-link">Branchen-Lösungen ▾</a>
-        <div class="dropdown">
-            <a href="ki-wissenssysteme-fuer-pflege-und-gesundheit.html">🏥 Pflege & Gesundheit</a>
-            <a href="ki-wissenssysteme-fuer-handwerk-und-bau.html">🏗️ Handwerk & Bau</a>
-            <a href="ki-wissenssysteme-fuer-produktion-und-industrie.html">⚙️ Produktion & Industrie</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a href="ki-beratung-und-strategie-kmu.html" class="nav-link">Beratung</a>
-    </li>
-    <li class="nav-item">
-        <a href="datenschutz-und-dsgvo-ki-systeme.html" class="nav-link">Sicherheit</a>
-    </li>
-    <li class="nav-item">
-        <a href="blog-ki-wissen-aktuell.html" class="nav-link">Blog <span class="blog-badge">Neu</span></a>
-    </li>
-</ul>
-                 
-            <a href="#kontakt" class="btn-cta">Anfrage</a>
-            <div class="mobile-toggle">☰</div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Branchen-Lösungen ▾</a>
+                    <div class="dropdown">
+                        <a href="ki-wissenssysteme-fuer-pflege.html">🏥 Pflege & Gesundheit</a>
+                        <a href="ki-wissenssysteme-fuer-handwerk-und-bau.html">🏗️ Handwerk & Bau</a>
+                        <a href="ki-wissenssysteme-fuer-industrie.html">⚙️ Produktion & Industrie</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="ki-beratung-und-strategie-kmu.html" class="nav-link">Beratung</a>
+                </li>
+                <li class="nav-item">
+                    <a href="datenschutz-und-dsgvo-ki-systeme.html" class="nav-link">Sicherheit</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog-ki-wissen-aktuell.html" class="nav-link">Blog <span style="font-size:0.6rem; background:var(--accent); padding:2px 6px; border-radius:10px; margin-left:5px;">NEU</span></a>
+                </li>
+            </ul>
+            <a href="mailto:beratung@ki-wissenssysteme.de" class="btn-main" style="padding: 12px 25px; font-size: 0.9rem;">Termin buchen</a>
         </div>
     </nav>
 
-    <header style="padding-top:150px; text-align:center;">
-        <h1 class="animate__animated animate__fadeInDown">Willkommen in der Zukunft des Wissens.</h1>
-        <p>Wählen Sie oben im Menü Ihre Branche aus.</p>
+    <header class="hero">
+        <h1 class="animate__animated animate__fadeInDown">Menschliches Wissen. <br><span style="color:var(--accent)">Digitale Geschwindigkeit.</span></h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">
+            Wir bauen Ihr individuelles Firmen-Gedächtnis. Mit KI Wissenssystemen finden Ihre Mitarbeiter Antworten in Sekunden – sicher, intuitiv und DSGVO-konform. 🚀
+        </p>
+        <a href="#kontakt" class="btn-main animate__animated animate__pulse animate__infinite">
+            Jetzt Potenzialanalyse anfragen 👋
+        </a>
     </header>
 
-    <section class="blog-preview">
-        <div style="text-align: center; margin-bottom: 50px;">
-            <span class="blog-tag">Insights & News</span>
-            <h2 style="font-size: 2.5rem;">Wissen für Entscheider</h2>
+    <section id="vorteile" class="section">
+        <div class="grid">
+            <div class="card">
+                <span class="floating-emoji">🧠</span>
+                <h3>Intelligente Dokumente</h3>
+                <p>Nie wieder PDFs durchsuchen. Fragen Sie Ihre KI einfach nach Inhalten aus Handbüchern oder Protokollen.</p>
+            </div>
+            <div class="card">
+                <span class="floating-emoji">⚡</span>
+                <h3>Sofortige Einarbeitung</h3>
+                <p>Neue Mitarbeiter lernen schneller, da das gesamte Firmenwissen per Chat sofort verfügbar ist.</p>
+            </div>
+            <div class="card">
+                <span class="floating-emoji">🛡️</span>
+                <h3>Höchster Datenschutz</h3>
+                <p>Ihre Daten verlassen niemals Ihr Unternehmen. Wir setzen auf isolierte, DSGVO-konforme Systeme.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="blog-grid">
+    <section class="section blog-section">
+        <h2 style="text-align:center; font-size:2.5rem; margin-bottom:50px;">Wissen für Entscheider 📖</h2>
+        <div class="grid">
             <article class="blog-card">
-                <div class="blog-content">
-                    <span class="blog-tag">Strategie</span>
-                    <h3 class="blog-title">Warum KMUs 2026 ohne KI den Anschluss verlieren</h3>
-                    <p>Eine Analyse über die Effizienzsteigerung im Mittelstand...</p>
-                    <a href="blog-artikel-1.html" style="color:var(--accent); text-decoration:none; font-weight:bold; display:inline-block; margin-top:15px;">Weiterlesen →</a>
+                <div class="blog-img">📈</div>
+                <div class="blog-body">
+                    <h3 style="margin-bottom:15px;">KI im Mittelstand 2026</h3>
+                    <p>Warum jetzt der richtige Zeitpunkt für die Implementierung ist.</p>
+                    <a href="blog-ki-wissen-aktuell.html" style="color:var(--accent); font-weight:800; text-decoration:none; display:block; margin-top:20px;">Artikel lesen →</a>
                 </div>
             </article>
-
             <article class="blog-card">
-                <div class="blog-content">
-                    <span class="blog-tag">Sicherheit</span>
-                    <h3 class="blog-title">DSGVO & KI: So bleiben Ihre Firmendaten geschützt</h3>
-                    <p>Wichtige Fakten zum internen Hosting von Sprachmodellen...</p>
-                    <a href="blog-artikel-2.html" style="color:var(--accent); text-decoration:none; font-weight:bold; display:inline-block; margin-top:15px;">Weiterlesen →</a>
+                <div class="blog-img">🔒</div>
+                <div class="blog-body">
+                    <h3 style="margin-bottom:15px;">Sicherheit geht vor</h3>
+                    <p>Wie wir Ihre Firmendaten vor fremden KIs schützen.</p>
+                    <a href="blog-ki-wissen-aktuell.html" style="color:var(--accent); font-weight:800; text-decoration:none; display:block; margin-top:20px;">Artikel lesen →</a>
                 </div>
             </article>
         </div>
     </section>
+
+    <footer>
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Bereit für die Transformation?</h2>
+        <p style="opacity: 0.7; margin-bottom: 40px;">Lassen Sie uns in einem 15-minütigen Call prüfen, wie viel Zeit Ihre Firma sparen kann.</p>
+        <a href="mailto:beratung@ki-wissenssysteme.de" class="btn-main" style="background:var(--accent)">E-Mail an Thomas Meyer</a>
+        
+        <div style="margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
+            <p style="font-weight: 800; font-size: 1.2rem; margin-bottom: 20px;">KI Wissenssysteme</p>
+            <div class="footer-links">
+                <a href="index.html">Start</a>
+                <a href="ki-beratung-und-strategie-kmu.html">Beratung</a>
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+            </div>
+            <p style="margin-top: 30px; opacity: 0.4; font-size: 0.8rem;">© 2026 KI Wissenssysteme - Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
