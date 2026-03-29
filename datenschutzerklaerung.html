@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datenschutzerklärung | KI Wissenssysteme Thomas Meyer</title>
+    <meta name="robots" content="noindex, follow">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #0284c7;
+            --soft-blue: #f0f9ff;
+            --text-main: #334155;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: #f8fafc; 
+            color: var(--text-main); 
+            line-height: 1.8; 
+        }
+
+        /* --- NAVIGATION (Identisch zur Startseite) --- */
+        nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--accent); }
+
+        /* --- CONTENT WRAPPER --- */
+        .legal-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 60px;
+            background: var(--white);
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+            border: 1px solid #f1f5f9;
+        }
+
+        h1 { font-size: 3rem; color: var(--primary); margin-bottom: 40px; letter-spacing: -2px; }
+        h2 { font-size: 1.6rem; color: var(--primary); margin: 50px 0 25px; border-bottom: 2px solid var(--soft-blue); display: inline-block; }
+        h3 { font-size: 1.2rem; color: var(--accent); margin-top: 30px; font-weight: 800; }
+        
+        p { margin-bottom: 20px; }
+        ul { margin-bottom: 25px; margin-left: 25px; }
+        li { margin-bottom: 12px; }
+
+        .contact-box {
+            background: var(--soft-blue);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 5px solid var(--accent);
+            margin: 30px 0;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        .btn-back:hover { transform: translateX(-5px); }
+
+        footer { padding: 60px 5% 40px; text-align: center; opacity: 0.6; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .legal-container { padding: 30px; margin: 20px; border-radius: 25px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">KI<span> Wissenssysteme</span></a>
+        <a href="index.html" style="text-decoration:none; color:var(--primary); font-weight:600;">Zurück zum Dashboard</a>
+    </nav>
+
+    <main class="legal-container animate__animated animate__fadeIn">
+        <a href="index.html" class="btn-back">← Zur Startseite</a>
+        <h1>Datenschutzerklärung</h1>
+
+        <section>
+            <h2>I. Name und Kontaktdaten des Verantwortlichen</h2>
+            <div class="contact-box">
+                <strong>Thomas Meyer</strong><br>
+                Glaubensberg 7<br>
+                91807 Solnhofen<br>
+                E-Mail: <a href="mailto:info@ki-wissenssysteme.de" style="color:var(--accent); text-decoration:none;">info@ki-wissenssysteme.de</a>
+            </div>
+        </section>
+
+        <section>
+            <h2>II. Kontaktdaten des Datenschutzbeauftragten</h2>
+            <p>Unseren Datenschutzbeauftragten erreichen Sie unter unserer Anschrift mit dem Zusatz „Datenschutzbeauftragter“ oder per E-Mail unter <a href="mailto:info@ki-wissenssysteme.de">info@ki-wissenssysteme.de</a>.</p>
+        </section>
+
+        <section>
+            <h2>III. Informationen zu den Verarbeitungen auf und im Zusammenhang mit unserer Website</h2>
+            
+            <h3>a) Besuch unserer Website</h3>
+            <p>Beim rein informatorischen Besuch unserer Website, wenn Sie uns also nicht anderweitig Informationen übermitteln, verarbeiten wir nur die personenbezogenen Daten, die uns Ihr Browser übermittelt. Dies sind:</p>
+            <ul>
+                <li>IP-Adresse Ihres Systems</li>
+                <li>Datum und Uhrzeit (inkl. Zeitzone) Ihrer Anfrage</li>
+                <li>Typ, Inhalt und Protokollversion Ihrer Anfrage (konkreter Seitenaufruf)</li>
+                <li>Zugriffsstatus (HTTP-Statuscode) unseres Servers</li>
+                <li>Größe unserer Server-Antwort in Bytes</li>
+                <li>Website, von der die Anfrage kommt (sogenannter Referrer)</li>
+                <li>Ihr User-Agent (Typ, Version, verwendetes Betriebssystem)</li>
+                <li>die von Ihnen aufgerufene Domain</li>
+            </ul>
+            <p>Wir speichern diese Daten auch in Logdateien.</p>
+            <p>Die genannten Daten sind für uns technisch erforderlich, um unsere Website anzuzeigen, die Stabilität und Sicherheit zu gewährleisten und unser Angebot zu optimieren. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>, wobei sich unser berechtigtes Interesse aus den genannten Zwecken ergibt.</p>
+            <p>Wir löschen diese Daten spätestens nach sieben Tagen. Eine darüberhinausgehende Speicherung findet nur statt, wenn die personenbezogenen Daten entsprechend gelöscht oder anonymisiert wurden; bei IP-Adressen geschieht dies z. B. durch eine datenschutzkonforme Kürzung.</p>
+            <p>Beim Betrieb unserer Website setzen wir als Auftragsverarbeiter die GitHub Inc. (bzw. deren Subunternehmen) ein.</p>
+
+            <h3>b) Kontaktformular</h3>
+            <p>Nutzen Sie unser Kontaktformular, verwenden wir die von Ihnen übermittelten Daten, wobei nur eine gültige E-Mail-Adresse erforderlich ist und die anderen Angaben freiwillig sind, um Ihre Anfrage zu beantworten.</p>
+            <p>Die Datenverarbeitung zum Zwecke der Kontaktaufnahme mit uns erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>, soweit es bei Ihrer Anfrage um die Durchführung bzw. Abwicklung von mit Ihnen geschlossenen Verträgen oder um eine Vertragsanbahnung geht. In anderen Fällen findet sich die Rechtsgrundlage in <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>, wobei sich unser berechtigtes Interesse aus den oben genannten Zwecken ergibt.</p>
+            <p>Die für die Benutzung des Kontaktformulars von uns erhobenen personenbezogenen Daten werden nach Erledigung der von Ihnen gestellten Anfrage automatisch gelöscht, wenn wir nicht gesetzlich zur Aufbewahrung verpflichtet sind oder wir die Daten zur Vertragserfüllung benötigen.</p>
+        </section>
+
+        <section>
+            <h2>IV. Welche Rechte haben Sie?</h2>
+            <p>Sie haben folgende Rechte gegenüber dem Verantwortlichen:</p>
+            <ul>
+                <li><strong>Recht auf Auskunft</strong> (Art. 15 DSGVO)</li>
+                <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
+                <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+                <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+                <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+                <li><strong>Recht auf Widerspruch gegen die Verarbeitung</strong> (Art. 21 DSGVO)</li>
+                <li><strong>Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde</strong> (Art. 77 DSGVO)</li>
+                <li><strong>Recht auf jederzeitigen Widerruf</strong> einer uns erteilten Einwilligung, ohne dass die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung berührt wird.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Thomas Meyer | KI Wissenssysteme</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Stand: März 2026</p>
+    </footer>
+
+</body>
+</html>
