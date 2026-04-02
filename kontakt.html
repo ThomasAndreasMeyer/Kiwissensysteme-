@@ -137,7 +137,7 @@
                 <div class="info-icon">📧</div>
                 <div>
                     <strong>Direkter Kontakt</strong><br>
-                    <a href="mailto:beratung@ki-wissenssysteme.de" style="color:var(--accent); text-decoration:none;">beratung@ki-wissenssysteme.de</a>
+                    <a href="mailto:info@ki-wissenssysteme.de" style="color:var(--accent); text-decoration:none;">beratung@ki-wissenssysteme.de</a>
                 </div>
             </div>
 
@@ -145,7 +145,7 @@
                 <div class="info-icon">📍</div>
                 <div>
                     <strong>Sitz der Agentur</strong><br>
-                    Thomas Meyer | Standort Ingolstadt
+                    Thomas Meyer | Standort Solnhofen, Bayern 
                 </div>
             </div>
 
@@ -159,40 +159,67 @@
         </div>
 
         <div class="contact-form animate__animated animate__fadeInRight">
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Vollständiger Name</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Vor- und Nachname" required>
-                </div>
 
-                <div class="form-group">
-                    <label for="email">Geschäftliche E-Mail</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="name@firma.de" required>
-                </div>
+<form action="kontakt.php" method="POST">
 
-                <div class="form-group">
-                    <label for="branche">Branche</label>
-                    <select id="branche" name="branche" class="form-control">
-                        <option value="pflege">Pflege & Gesundheit</option>
-                        <option value="handwerk">Handwerk & Bau</option>
-                        <option value="industrie">Industrie & Produktion</option>
-                        <option value="andere">Andere Dienstleistung</option>
-                    </select>
-                </div>
+<div class="form-group">
+<label for="name">Vollständiger Name</label>
+<input type="text" id="name" name="name" class="form-control" placeholder="Vor- und Nachname" required>
+</div>
 
-                <div class="form-group">
-                    <label for="message">Wie können wir Ihnen helfen?</label>
-                    <textarea id="message" name="message" class="form-control" rows="5" placeholder="Beschreiben Sie kurz Ihre aktuelle Herausforderung..."></textarea>
-                </div>
+<div class="form-group">
+<label for="email">Geschäftliche E-Mail</label>
+<input type="email" id="email" name="email" class="form-control" placeholder="name@firma.de" required>
+</div>
 
-                <button type="submit" class="submit-btn">Analyse-Gespräch anfragen</button>
-                
-                <div class="trust-badge">
-                    <span>🔒</span> SSL-verschlüsselt & DSGVO-konform
-                </div>
-            </form>
+<div class="form-group">
+<label for="branche">Branche</label>
+<select id="branche" name="branche" class="form-control">
+
+<option value="pflege">Pflege & Gesundheit</option>
+<option value="handwerk">Handwerk & Bau</option>
+<option value="industrie">Industrie & Produktion</option>
+<option value="andere">Andere Dienstleistung</option>
+
+</select>
+</div>
+
+<div class="form-group">
+<label for="message">Wie können wir Ihnen helfen?</label>
+
+<textarea id="message" name="message" class="form-control" rows="5" placeholder="Beschreiben Sie kurz Ihre aktuelle Herausforderung..." required></textarea>
+
+</div>
+
+<!-- Honeypot Spam Schutz -->
+<div style="display:none;">
+<label>Website</label>
+<input type="text" name="website">
+</div>
+
+<!-- DSGVO Zustimmung -->
+
+<div class="form-group">
+
+<input type="checkbox" name="privacy" required>
+
+Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.
+
+</div>
+
+<button type="submit" class="submit-btn">
+
+Analyse-Gespräch anfragen
+
+</button>
+
+<div class="trust-badge">
+<span>🔒</span> SSL-verschlüsselt & DSGVO-konform
+</div>
+
+</form>
+
         </div>
-
     </main>
 
     <footer style="padding: 40px; text-align: center; border-top: 1px solid #e2e8f0; margin-top: 40px;">
