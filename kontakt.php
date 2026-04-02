@@ -3,6 +3,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// Konfigurationsdatei laden (eine Ebene über public_html)
+$config = require '../config.php';
+
 require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
@@ -24,21 +27,21 @@ try {
 
 $mail->isSMTP();
 
-$mail->Host = 'smtp.kasserver.com';
+$mail->Host = $config["SMTP_HOST"];
 
 $mail->SMTPAuth = true;
 
-$mail->Username = 'info@ki-wissenssysteme.de';
+$mail->Username = $config["SMTP_USER"];
 
-$mail->Password = 'DEIN_EMAIL_PASSWORT';
+$mail->Password = $config["SMTP_PASS"];
 
 $mail->SMTPSecure = 'tls';
 
-$mail->Port = 587;
+$mail->Port = $config["SMTP_PORT"];
 
-$mail->setFrom('info@ki-wissenssysteme.de', 'KI Wissenssysteme');
+$mail->setFrom($config["SMTP_USER"], 'KI Wissenssysteme');
 
-$mail->addAddress('info@ki-wissenssysteme.de');
+$mail->addAddress($config["SMTP_USER"]);
 
 $mail->addReplyTo($email, $name);
 
