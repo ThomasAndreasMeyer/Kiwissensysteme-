@@ -21,7 +21,7 @@ $email = htmlspecialchars($_POST["email"]);
 $branche = htmlspecialchars($_POST["branche"]);
 $message = htmlspecialchars($_POST["message"]);
 
-$mail = new PHPMailer(true);
+$mail = new PHPMailer\PHPMailer\PHPMailer(true);
 
 try {
 
