@@ -1,5 +1,12 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'phpmailer/PHPMailer.php';
+require 'phpmailer/SMTP.php';
+require 'phpmailer/Exception.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if(!empty($_POST["website"])) {
@@ -11,25 +18,60 @@ $email = htmlspecialchars($_POST["email"]);
 $branche = htmlspecialchars($_POST["branche"]);
 $message = htmlspecialchars($_POST["message"]);
 
-$to = "info@ki-wissenssysteme.de";
+$mail = new PHPMailer(true);
 
-$subject = "Neue Anfrage über Webseite";
+try {
 
-$body = "Neue Anfrage über KI-Wissenssysteme Webseite\n\n";
+$mail->isSMTP();
 
-$body .= "Name: $name\n";
-$body .= "Email: $email\n";
-$body .= "Branche: $branche\n\n";
-$body .= "Nachricht:\n$message";
+$mail->Host = 'smtp.kasserver.com';
 
-$headers = "From: info@ki-wissenssysteme.de\r\n";
-$headers .= "Reply-To: $email";
+$mail->SMTPAuth = true;
 
-mail($to, $subject, $body, $headers);
+$mail->Username = 'info@ki-wissenssysteme.de';
+
+$mail->Password = 'DEIN_EMAIL_PASSWORT';
+
+$mail->SMTPSecure = 'tls';
+
+$mail->Port = 587;
+
+$mail->setFrom('info@ki-wissenssysteme.de', 'KI Wissenssysteme');
+
+$mail->addAddress('info@ki-wissenssysteme.de');
+
+$mail->addReplyTo($email, $name);
+
+$mail->isHTML(true);
+
+$mail->Subject = 'Neue Anfrage über Webseite';
+
+$mail->Body = "
+
+<h2>Neue Anfrage</h2>
+
+<strong>Name:</strong> $name<br>
+
+<strong>Email:</strong> $email<br>
+
+<strong>Branche:</strong> $branche<br><br>
+
+<strong>Nachricht:</strong><br>
+
+$message
+
+";
+
+$mail->send();
 
 header("Location: danke.html");
+
 exit;
+
+} catch (Exception $e) {
+
+echo "Nachricht konnte nicht gesendet werden.";
 
 }
 
-?>
+}
