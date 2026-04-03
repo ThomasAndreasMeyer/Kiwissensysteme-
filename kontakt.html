@@ -13,6 +13,7 @@
         :root {
             --primary: #0f172a;
             --accent: #0284c7;
+            --whatsapp: #25d366;
             --text: #334155;
             --bg: #f8fafc;
             --white: #ffffff;
@@ -46,7 +47,6 @@
             gap: 60px;
         }
 
-        /* Linke Spalte: Infos */
         .contact-info h1 { font-size: 3rem; color: var(--primary); letter-spacing: -2px; line-height: 1.1; margin-bottom: 25px; }
         .contact-info p { font-size: 1.1rem; margin-bottom: 30px; }
 
@@ -64,7 +64,6 @@
         .info-card:hover { border-color: var(--accent); transform: translateX(10px); }
         .info-icon { font-size: 1.8rem; }
 
-        /* Rechte Spalte: Formular */
         .contact-form {
             background: var(--white);
             padding: 50px;
@@ -108,9 +107,9 @@
             font-size: 0.85rem;
             color: #64748b;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
+            gap: 5px;
         }
 
         @media (max-width: 900px) {
@@ -131,13 +130,21 @@
         
         <div class="contact-info">
             <h1>Lassen Sie uns Ihre <span style="color:var(--accent)">KI-Strategie</span> planen.</h1>
-            <p>In einem 15-minütigen Erstgespräch klären wir, wie viel Zeit und Ressourcen Ihre Firma durch ein internes Wissenssystem einsparen kann.</p>
+            <p>Datensparsam & effizient: Kontaktieren Sie uns für ein unverbindliches 15-minütiges Erstgespräch.</p>
             
             <div class="info-card">
                 <div class="info-icon">📧</div>
                 <div>
-                    <strong>Direkter Kontakt</strong><br>
-                    <a href="mailto:info@ki-wissenssysteme.de" style="color:var(--accent); text-decoration:none;">beratung@ki-wissenssysteme.de</a>
+                    <strong>E-Mail Kontakt</strong><br>
+                    <a href="mailto:info@ki-wissenssysteme.de" style="color:var(--accent); text-decoration:none;">info@ki-wissenssysteme.de</a>
+                </div>
+            </div>
+
+            <div class="info-card" style="border-left: 4px solid var(--whatsapp);">
+                <div class="info-icon">💬</div>
+                <div>
+                    <strong>WhatsApp Business</strong><br>
+                    <a href="https://wa.me/4915624032313" target="_blank" style="color:var(--whatsapp); text-decoration:none; font-weight: 600;">01562 4032313 (Chat starten)</a>
                 </div>
             </div>
 
@@ -145,83 +152,57 @@
                 <div class="info-icon">📍</div>
                 <div>
                     <strong>Sitz der Agentur</strong><br>
-                    Thomas Meyer | Standort Solnhofen, Bayern 
-                </div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-icon">🛡️</div>
-                <div>
-                    <strong>Datenschutz-Garantie</strong><br>
-                    Ihre Anfrage wird verschlüsselt und absolut vertraulich behandelt.
+                    Thomas Meyer | Solnhofen, Bayern 
                 </div>
             </div>
         </div>
 
         <div class="contact-form animate__animated animate__fadeInRight">
 
-<form action="kontakt.php" method="POST">
+            <form action="kontakt.php" method="POST">
 
-<div class="form-group">
-<label for="name">Vollständiger Name</label>
-<input type="text" id="name" name="name" class="form-control" placeholder="Vor- und Nachname" required>
-</div>
+                <div class="form-group">
+                    <label for="email">Geschäftliche E-Mail Adresse</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="ihre-mail@firma.de" required>
+                </div>
 
-<div class="form-group">
-<label for="email">Geschäftliche E-Mail</label>
-<input type="email" id="email" name="email" class="form-control" placeholder="name@firma.de" required>
-</div>
+                <div class="form-group">
+                    <label for="branche">Branche</label>
+                    <select id="branche" name="branche" class="form-control">
+                        <option value="pflege">Pflege & Gesundheit</option>
+                        <option value="handwerk">Handwerk & Bau</option>
+                        <option value="industrie">Industrie & Produktion</option>
+                        <option value="andere">Andere Dienstleistung</option>
+                    </select>
+                </div>
 
-<div class="form-group">
-<label for="branche">Branche</label>
-<select id="branche" name="branche" class="form-control">
+                <div class="form-group">
+                    <label for="message">Wie können wir Ihnen helfen?</label>
+                    <textarea id="message" name="message" class="form-control" rows="5" placeholder="Kurze Beschreibung Ihrer Herausforderung..." required></textarea>
+                </div>
 
-<option value="pflege">Pflege & Gesundheit</option>
-<option value="handwerk">Handwerk & Bau</option>
-<option value="industrie">Industrie & Produktion</option>
-<option value="andere">Andere Dienstleistung</option>
+                <div style="display:none;">
+                    <label>Website</label>
+                    <input type="text" name="website">
+                </div>
 
-</select>
-</div>
+                <div class="form-group">
+                    <input type="checkbox" name="privacy" id="privacy" required>
+                    <label for="privacy" style="display:inline; font-weight: 400; margin-left: 5px;">
+                        Ich stimme der Verarbeitung meiner Daten gemäß der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> zu.
+                    </label>
+                </div>
 
-<div class="form-group">
-<label for="message">Wie können wir Ihnen helfen?</label>
+                <button type="submit" class="submit-btn">
+                    Analyse-Gespräch anfragen
+                </button>
 
-<textarea id="message" name="message" class="form-control" rows="5" placeholder="Beschreiben Sie kurz Ihre aktuelle Herausforderung..." required></textarea>
+                <div class="trust-badge">
+                    <span>🔒 SSL-verschlüsselt & DSGVO-konform</span>
+                    <span>Antwortzeit: Meist innerhalb von 24 Stunden.</span>
+                </div>
 
-</div>
-
-<!-- Honeypot Spam Schutz -->
-<div style="display:none;">
-<label>Website</label>
-<input type="text" name="website">
-</div>
-
-<!-- DSGVO Zustimmung -->
-
-<div class="form-group">
-
-<input type="checkbox" name="privacy" required>
-
-Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.
-
-</div>
-
-<button type="submit" class="submit-btn">
-
-Analyse-Gespräch anfragen
-
-</button>
-
-<div class="trust-badge">
-<span>🔒</span> SSL-verschlüsselt & DSGVO-konform
-    <p>
-Antwortzeit: meist innerhalb von 24 Stunden.
-    </p>
-</div>
-
-</form>
-
+            </form>
         </div>
     </main>
 
