@@ -173,6 +173,195 @@
             .nav-links { display: none; }
             header { padding-top: 120px; }
         }
+
+    
+    :root {
+        --chat-primary: #0f172a;
+        --chat-accent: #0284c7;
+        --chat-bg: rgba(255, 255, 255, 0.95);
+        --chat-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    /* Schwebender Button mit Puls-Effekt */
+    #ki-chat-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--chat-primary);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 16px 28px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+        box-shadow: var(--chat-shadow);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        animation: pulse-blue 2s infinite;
+    }
+
+    @keyframes pulse-blue {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(15, 23, 42, 0.4); }
+        70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(15, 23, 42, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(15, 23, 42, 0); }
+    }
+
+    #ki-chat-button:hover {
+        background: var(--chat-accent);
+        transform: translateY(-5px);
+    }
+
+    /* Chat Fenster */
+    #ki-chat-box {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 380px;
+        height: 550px;
+        background: var(--chat-bg);
+        backdrop-filter: blur(15px);
+        border-radius: 24px;
+        box-shadow: var(--chat-shadow);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        z-index: 10000;
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    #ki-chat-header {
+        background: var(--chat-primary);
+        color: white;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .bot-status {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #10b981;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #10b981;
+    }
+
+    #ki-chat-messages {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        background: #f8fafc;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Bubbles */
+    .ki-bubble {
+        padding: 12px 16px;
+        border-radius: 18px;
+        max-width: 85%;
+        font-size: 14px;
+        line-height: 1.5;
+        position: relative;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .user-bubble {
+        background: var(--chat-accent);
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+    }
+
+    .bot-bubble {
+        background: white;
+        color: var(--chat-primary);
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        border: 1px solid #e2e8f0;
+    }
+
+    /* Typing Animation */
+    .typing {
+        display: none;
+        padding: 12px;
+        background: white;
+        width: fit-content;
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+
+    .dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #94a3b8;
+        border-radius: 50%;
+        animation: wave 1.3s linear infinite;
+    }
+    .dot:nth-child(2) { animation-delay: -1.1s; }
+    .dot:nth-child(3) { animation-delay: -0.9s; }
+
+    @keyframes wave { 0%, 60%, 100% { transform: initial; } 30% { transform: translateY(-5px); } }
+
+    /* Input Bereich */
+    #ki-chat-input-area {
+        padding: 20px;
+        background: white;
+        border-top: 1px solid #e2e8f0;
+        display: flex;
+        gap: 10px;
+    }
+
+    #ki-user-input {
+        flex: 1;
+        border: 1px solid #e2e8f0;
+        padding: 12px 15px;
+        border-radius: 12px;
+        outline: none;
+        transition: border 0.3s;
+    }
+
+    #ki-user-input:focus { border-color: var(--chat-accent); }
+
+    .send-btn {
+        background: var(--chat-primary);
+        color: white;
+        border: none;
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+    }
+
+    .send-btn:hover { background: var(--chat-accent); }
+
+    @media (max-width: 450px) {
+        #ki-chat-box { width: 90%; right: 5%; bottom: 90px; }
+    }
+
+
     </style>
 </head>
 <body>
@@ -268,7 +457,40 @@
             </div>
         </div>
     </section>
+<button id="ki-chat-button">
+    <span id="chat-icon">✨</span> Demo Wissens-KI
+</button>
 
+<div id="ki-chat-box">
+    <div id="ki-chat-header">
+        <div>
+            <div style="font-weight: 800; font-size: 16px;">Thomas Meyer KI</div>
+            <div class="bot-status">
+                <div class="status-dot"></div>
+                <span style="opacity: 0.8; font-size: 12px;">Experte für Pflege-Wissen</span>
+            </div>
+        </div>
+        <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:20px;">×</button>
+    </div>
+
+    <div id="ki-chat-messages">
+        <div class="ki-bubble bot-bubble">
+            Willkommen! Ich bin die Demo-KI für Ihr internes Wissenssystem. Fragen Sie mich etwas zum Betrieb (z.B. Brandschutz, Hygiene oder Notfall).
+        </div>
+    </div>
+
+    <div id="typing-indicator" class="ki-bubble bot-bubble typing">
+        <span class="dot"></span> <span class="dot"></span> <span class="dot"></span>
+    </div>
+
+    <div id="ki-chat-input-area">
+        <input type="text" id="ki-user-input" placeholder="Nachricht schreiben..." onkeypress="handleKeyPress(event)">
+        <button class="send-btn" onclick="sendMessage()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+    </div>
+</div>
+    
     <section id="beispiele" class="section">
         <div class="section-title">
             <h2>Branchen-Lösungen</h2>
@@ -309,6 +531,71 @@
             <p style="margin-top:10px;"><a href="impressum.html" style="color:white; margin:0 10px;">Impressum</a> | <a href="datenschutzerklaerung" style="color:white; margin:0 10px;">Datenschutzerklärung</a></p>
         </div>
     </footer>
+<script>
+const knowledge = {
+    "öffnungszeiten": "Unser Büro ist Montag bis Freitag von 08:00 bis 17:00 Uhr besetzt. In Notfällen ist die Pflegeleitung 24/7 erreichbar.",
+    "sturz": "Sicherheit geht vor: 1. Bewohner stabilisieren, 2. Vitalwerte prüfen, 3. Pflegeleitung informieren, 4. Sturzprotokoll im System hinterlegen.",
+    "brandschutz": "Im Brandfall: Ruhe bewahren. Alarm auslösen (112). Bewohner evakuieren (Sammelplatz West). Keine Aufzüge benutzen!",
+    "hygiene": "Hygiene rettet Leben: Bitte nutzen Sie die Desinfektionsspender vor und nach jedem Zimmerbesuch. Handschuhpflicht bei Kontakt mit Körperflüssigkeiten.",
+    "medikamente": "Die 6-R-Regel beachten: Richtiger Bewohner, richtiges Medikament, richtige Dosis, richtige Applikation, richtiger Zeitpunkt, richtige Dokumentation.",
+    "notfall": "Rufen Sie sofort die 112. Parallel ist die interne Notruf-Taste im Dienstzimmer zu drücken. Erste Hilfe leisten bis der Notarzt eintrifft."
+};
 
+function toggleChat() {
+    const chatBox = document.getElementById("ki-chat-box");
+    chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+}
+
+document.getElementById("ki-chat-button").onclick = toggleChat;
+
+function handleKeyPress(e) {
+    if (e.key === 'Enter') sendMessage();
+}
+
+function sendMessage() {
+    const input = document.getElementById("ki-user-input");
+    const text = input.value.trim().toLowerCase();
+    if (!text) return;
+
+    addMessage(input.value, "user");
+    input.value = "";
+
+    // Zeige "KI denkt nach..."
+    const typing = document.getElementById("typing-indicator");
+    typing.style.display = "block";
+    const messagesDiv = document.getElementById("ki-chat-messages");
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    setTimeout(() => {
+        typing.style.display = "none";
+        let response = "Dazu habe ich in dieser Demo-Datenbank noch keine Information. Möchten Sie, dass ich ein System für Ihre spezifischen Handbücher erstelle?";
+        
+        for (let key in knowledge) {
+            if (text.includes(key)) {
+                response = knowledge[key];
+                break;
+            }
+        }
+
+        addMessage(response, "bot");
+        
+        // Nach der Antwort: CTA für Beratung
+        if (text.length > 3) {
+            setTimeout(() => {
+                addMessage("Möchten Sie wissen, wie wir dieses System mit Ihren eigenen Unterlagen füllen? <a href='kontakt.html' style='color:#0284c7; font-weight:bold;'>Hier Termin buchen.</a>", "bot");
+            }, 1000);
+        }
+    }, 1200);
+}
+
+function addMessage(text, sender) {
+    const messages = document.getElementById("ki-chat-messages");
+    const div = document.createElement("div");
+    div.className = "ki-bubble " + (sender === "user" ? "user-bubble" : "bot-bubble");
+    div.innerHTML = text; // innerHTML erlaubt Links
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+}
+</script>
 </body>
 </html>
