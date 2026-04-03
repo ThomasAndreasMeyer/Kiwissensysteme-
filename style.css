@@ -25,19 +25,55 @@ body {
     color: var(--text-main); 
     line-height: 1.6; 
     overflow-x: hidden;
-}
-
-/* 2. NAVIGATION & FOOTER (Gleich auf allen Seiten) */
+   }
+   
+/* 1. KORREKTUR FÜR DIE NAVIGATION */
 nav {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
-    padding: 1rem 5%;
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    top: 0; z-index: 1000;
+    top: 0; 
+    z-index: 10000;
     border-bottom: 1px solid rgba(0,0,0,0.05);
+    flex-wrap: wrap; /* Verhindert das Ineinanderquetschen auf dem Handy */
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* 2. KORREKTUR FÜR DEN ABSTAND (Hero-Sektion) */
+.hero {
+    padding: 140px 5% 60px; /* Mehr Abstand nach oben (140px statt 120px) */
+    text-align: center; /* Zentriert den Text für einen edlen Enterprise-Look */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 8vw, 4rem); /* Dynamische Größe für Handy & Desktop */
+    margin-bottom: 20px;
+}
+
+/* 3. MOBILE OPTIMIERUNG (Damit es wie auf dem Screenshot sauber wird) */
+@media (max-width: 600px) {
+    nav {
+        justify-content: center; /* Zentriert Logo auf Handy */
+        padding: 10px;
+    }
+    .nav-links {
+        display: none; /* Versteckt die Links auf Handy für mehr Platz (optional) */
+    }
+    .hero {
+        padding: 100px 20px 40px;
+        text-align: left; /* Auf dem Handy ist Linksbündig oft besser lesbar */
+    }
 }
 
 .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
