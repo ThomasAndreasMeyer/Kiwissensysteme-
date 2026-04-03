@@ -3,251 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KI Wissenssysteme | Intelligente Enterprise-Lösungen für KMU</title>
-    
-    <meta name="description" content="KI Wissenssysteme für den Mittelstand. DSGVO-konforme interne KI-Assistenten für Dokumente, Richtlinien und Prozesswissen.">
-    <meta name="author" content="Thomas Meyer">
+    <title>KI Wissenssysteme | Thomas Meyer – Effizienz für den Mittelstand</title>
+    <meta name="description" content="Skalierbare KI-Lösungen und interne Wissenssysteme für Pflege, Handwerk und Industrie.">
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-    <meta name="google-site-verification" content="R6a23h4Ob2ddMeSue5SI66NgNXzi4HvejE2PhoKUyyg" />
     
     <link rel="stylesheet" href="style.css">
-            
+
+    <style>
+        /* Spezifische Ergänzungen nur für die Startseite */
+        .hero {
+            padding: 120px 5% 80px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cta-box {
+            background: var(--primary);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 40px;
+            text-align: center;
+            margin: 80px 5%;
+        }
+    </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">
-            <div class="logo-dot"></div>
-            KI<span> Wissenssysteme</span>
-        </a>
+        <a href="index.html" class="logo">KI<span> Wissenssysteme</span></a>
         <div class="nav-links">
-            <a href="#problem">Vorteile</a>
-            <a href="#technologie">Technologie</a>
-            <a href="#beispiele">Branchen</a>
-            <a href="blog.html">Blog</a>
-            <a href="kontakt.html">Kontakt</a>
+            <a href="kontakt.html" class="submit-btn" style="padding: 10px 20px; font-size: 0.9rem; text-decoration: none;">Termin buchen</a>
         </div>
     </nav>
 
-    <header>
-        <h1 class="animate__animated animate__fadeInDown">Menschliches Wissen. <br><span style="color:var(--accent)">Digitale Geschwindigkeit.</span></h1>
-        <p class="animate__animated animate__fadeInUp">
-            Verwandeln Sie verstreute Dokumente und Richtlinien in einen zentralen, intelligenten Firmen-Assistenten. 100% DSGVO-konform für den deutschen Mittelstand.
-        </p>
-        <div class="animate__animated animate__fadeInUp animate__delay-1s">
-            <a class="button" href="#kontakt">Kostenlose Potenzialanalyse 👋</a>
+    <header class="hero animate__animated animate__fadeIn">
+        <h1>Bringen Sie Ihr Firmenwissen auf <span style="color:var(--accent)">KI-Niveau</span>.</h1>
+        <p>Wir bauen maßgeschneiderte KI-Assistenten für Pflegeheime, Handwerksbetriebe und Industrie, die Handbücher und Protokolle in Sekunden auswerten.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="kontakt.html" class="submit-btn" style="text-decoration: none; width: auto; padding: 18px 40px;">Potenzialanalyse anfragen</a>
+            <a href="#demo" onclick="toggleChat()" class="info-card" style="margin: 0; padding: 15px 30px; text-decoration: none; font-weight: 700;">KI Demo testen</a>
         </div>
     </header>
 
-    <section id="problem" class="section">
-        <div class="section-title">
-            <span class="badge">DIE HERAUSFORDERUNG</span>
-            <h2>Wissen finden statt suchen</h2>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <div class="icon-box">📂</div>
-                <h3>Verstreute Daten</h3>
-                <p>Wissen liegt oft isoliert in PDFs, E-Mails und veralteten Ordnern. Wir führen alles zusammen.</p>
-            </div>
-            <div class="card">
-                <div class="icon-box">⏳</div>
-                <h3>Zeitverlust</h3>
-                <p>Mitarbeiter verlieren bis zu 20% ihrer Zeit mit der Suche nach Informationen. Wir machen es in Sekunden möglich.</p>
-            </div>
-            <div class="card">
-                <div class="icon-box">🧠</div>
-                <h3>Wissensverlust</h3>
-                <p>Wenn Experten das Unternehmen verlassen, geht Wissen verloren. Unsere KI sichert Ihr Firmen-Know-how dauerhaft.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="lösung" class="section">
-        <div class="section-title">
-            <span class="badge">INTERAKTIVE DEMO</span>
-            <h2>So antwortet Ihr KI-System</h2>
-        </div>
-        <div class="card animate__animated animate__fadeIn">
-            <p>Ein interner KI-Assistent versteht den Kontext Ihrer Dokumente und liefert präzise Anweisungen für Ihr Personal:</p>
-            <div class="demo-box">
-                <p style="color:var(--accent); font-weight:800; margin-bottom:10px;">Mitarbeiter fragt:</p>
-                <p><em>"Wie reagiere ich bei einem IT-Systemausfall am Wochenende?"</em></p>
-                <hr style="margin:15px 0; border:0; border-top:1px solid #cbd5e1;">
-                <p style="color:var(--primary); font-weight:800; margin-bottom:10px;">KI-Antwort (basiert auf Ihrer IT-Richtlinie):</p>
-                <ol style="margin-left:20px;">
-                    <li>Bereitschaftsdienst unter +49 123 456 anrufen.</li>
-                    <li>Ticket im System mit Priorität "Kritisch" erstellen.</li>
-                    <li>Geschäftsführung per SMS informieren.</li>
-                </ol>
-            </div>
-        </div>
-    </section>
-
-    <section id="technologie" class="section">
-        <div class="section-title">
-            <h2>Unsere Kerntechnologie</h2>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <div class="icon-box">🔍</div>
-                <h3>Semantische Analyse</h3>
-                <p>Unser System sucht nicht nach Wörtern, sondern versteht die Bedeutung Ihrer Fragen.</p>
-            </div>
-            <div class="card">
-                <div class="icon-box">🛡️</div>
-                <h3>DSGVO-First</h3>
-                <p>Ihre Daten bleiben in Deutschland oder auf Ihren Servern. Kein Training öffentlicher KI-Modelle.</p>
-            </div>
-            <div class="card">
-                <div class="icon-box">🔗</div>
-                <h3>Nahtlose Integration</h3>
-                <p>Einfache Anbindung an bestehende Datei-Server, Sharepoints oder Cloud-Speicher.</p>
-            </div>
-        </div>
-    </section>
-<button id="ki-chat-button">
-    <span id="chat-icon">✨</span> Demo Wissens-KI
-</button>
-
-<div id="ki-chat-box">
-    <div id="ki-chat-header">
-        <div>
-            <div style="font-weight: 800; font-size: 16px;">Thomas Meyer KI</div>
-            <div class="bot-status">
-                <div class="status-dot"></div>
-                <span style="opacity: 0.8; font-size: 12px;">Experte für Pflege-Wissen</span>
-            </div>
-        </div>
-        <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:20px;">×</button>
-    </div>
-
-    <div id="ki-chat-messages">
-        <div class="ki-bubble bot-bubble">
-            Willkommen! Ich bin die Demo-KI für Ihr internes Wissenssystem. Fragen Sie mich etwas zum Betrieb (z.B. Brandschutz, Hygiene oder Notfall).
-        </div>
-    </div>
-
-    <div id="typing-indicator" class="ki-bubble bot-bubble typing">
-        <span class="dot"></span> <span class="dot"></span> <span class="dot"></span>
-    </div>
-
-    <div id="ki-chat-input-area">
-        <input type="text" id="ki-user-input" placeholder="Nachricht schreiben..." onkeypress="handleKeyPress(event)">
-        <button class="send-btn" onclick="sendMessage()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-        </button>
-    </div>
-</div>
-    
-    <section id="beispiele" class="section">
-        <div class="section-title">
-            <h2>Branchen-Lösungen</h2>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <div class="badge">PFLEGE & GESUNDHEIT</div>
-                <p>Sofortiger Zugriff auf Pflegehandbücher, Sturzprotokolle und Brandschutzvorschriften für das Personal.</p>
-            </div>
-            <div class="card">
-                <div class="badge">HANDWERK & INDUSTRIE</div>
-                <p>Maschinen-Handbücher und Wartungsintervalle direkt auf das Smartphone der Techniker.</p>
-            </div>
-            <div class="card">
-                <div class="badge">KMU & KANZLEIEN</div>
-                <p>Schnellrecherche in Prozesshandbüchern, Verträgen und internen Standards.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer id="kontakt">
-        <div class="footer-grid">
+    <section class="features">
+        <div class="info-card animate__animated animate__fadeInUp">
+            <div class="info-icon">🏥</div>
             <div>
-                <h3 style="margin-bottom:20px;">KI Wissenssysteme</h3>
-                <p style="opacity:0.7;">Wir machen Wissen nutzbar. Effizient, sicher und zukunftsorientiert.</p>
-            </div>
-            <div>
-                <h3 style="margin-bottom:20px;">Kontakt</h3>
-                <p style="opacity:0.7;">Thomas Meyer</p>
-                <p style="opacity:0.7;">Email: info@ki-wissenssysteme.de</p>
-            </div>
-            <div>
-                <a href="mailto:info@ki-wissenssysteme.de" class="button" style="background:var(--accent)">Jetzt anfragen</a>
+                <h3>Pflege & Gesundheit</h3>
+                <p>Sofortiger Zugriff auf QM-Handbücher und Sturzprotokolle für Ihre Pflegefachkräfte.</p>
             </div>
         </div>
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.8rem; opacity: 0.5;">
-            <p>© 2026 KI Wissenssysteme | Thomas Meyer. Alle Rechte vorbehalten.</p>
-            <p style="margin-top:10px;"><a href="impressum.html" style="color:white; margin:0 10px;">Impressum</a> | <a href="datenschutzerklaerung" style="color:white; margin:0 10px;">Datenschutzerklärung</a></p>
+        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+            <div class="info-icon">🛠️</div>
+            <div>
+                <h3>Handwerk & Bau</h3>
+                <p>Digitale Bauakten und technische Normen per Chat direkt auf der Baustelle abrufen.</p>
+            </div>
         </div>
+        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+            <div class="info-icon">🏭</div>
+            <div>
+                <h3>Industrie</h3>
+                <p>Wartungsintervalle und Maschinenhandbücher als intelligentes Wissens-Backup.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-box">
+        <h2 style="font-size: 2rem; margin-bottom: 20px;">Bereit für die digitale Transformation?</h2>
+        <p style="margin-bottom: 30px; opacity: 0.9;">Lassen Sie uns gemeinsam prüfen, wie viel Zeit Ihre Mitarbeiter täglich durch KI-Suche einsparen können.</p>
+        <a href="kontakt.html" class="submit-btn" style="background: var(--white); color: var(--primary); text-decoration: none; width: auto; padding: 15px 40px;">Jetzt Kontakt aufnehmen</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Thomas Meyer | KI Wissenssysteme<br>
+        <small><a href="impressum.html" style="color:inherit;">Impressum</a> | <a href="datenschutz.html" style="color:inherit;">Datenschutz</a></small></p>
     </footer>
-<script>
-const knowledge = {
-    "öffnungszeiten": "Unser Büro ist Montag bis Freitag von 08:00 bis 17:00 Uhr besetzt. In Notfällen ist die Pflegeleitung 24/7 erreichbar.",
-    "sturz": "Sicherheit geht vor: 1. Bewohner stabilisieren, 2. Vitalwerte prüfen, 3. Pflegeleitung informieren, 4. Sturzprotokoll im System hinterlegen.",
-    "brandschutz": "Im Brandfall: Ruhe bewahren. Alarm auslösen (112). Bewohner evakuieren (Sammelplatz West). Keine Aufzüge benutzen!",
-    "hygiene": "Hygiene rettet Leben: Bitte nutzen Sie die Desinfektionsspender vor und nach jedem Zimmerbesuch. Handschuhpflicht bei Kontakt mit Körperflüssigkeiten.",
-    "medikamente": "Die 6-R-Regel beachten: Richtiger Bewohner, richtiges Medikament, richtige Dosis, richtige Applikation, richtiger Zeitpunkt, richtige Dokumentation.",
-    "notfall": "Rufen Sie sofort die 112. Parallel ist die interne Notruf-Taste im Dienstzimmer zu drücken. Erste Hilfe leisten bis der Notarzt eintrifft."
-};
 
-function toggleChat() {
-    const chatBox = document.getElementById("ki-chat-box");
-    chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
-}
+    <button id="ki-chat-button">
+        <span id="chat-icon">✨</span> Demo Wissens-KI
+    </button>
 
-document.getElementById("ki-chat-button").onclick = toggleChat;
+    <div id="ki-chat-box">
+        <div id="ki-chat-header">
+            <div>
+                <div style="font-weight: 800; font-size: 16px;">Thomas Meyer KI</div>
+                <div class="bot-status">
+                    <div class="status-dot"></div>
+                    <span style="opacity: 0.8; font-size: 12px;">Demo-Modus aktiv</span>
+                </div>
+            </div>
+            <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:20px;">×</button>
+        </div>
 
-function handleKeyPress(e) {
-    if (e.key === 'Enter') sendMessage();
-}
+        <div id="ki-chat-messages">
+            <div class="ki-bubble bot-bubble">
+                Willkommen! Fragen Sie mich etwas zum Betrieb (z.B. Brandschutz, Hygiene oder Notfall).
+            </div>
+        </div>
 
-function sendMessage() {
-    const input = document.getElementById("ki-user-input");
-    const text = input.value.trim().toLowerCase();
-    if (!text) return;
+        <div id="typing-indicator" class="ki-bubble bot-bubble" style="display:none; width: 60px;">
+            ...
+        </div>
 
-    addMessage(input.value, "user");
-    input.value = "";
+        <div id="ki-chat-input-area" style="padding: 15px; display: flex; gap: 10px; background: white; border-top: 1px solid #eee;">
+            <input type="text" id="ki-user-input" placeholder="Frage stellen..." style="flex:1; border: 1px solid #ddd; padding: 10px; border-radius: 8px;">
+            <button onclick="sendMessage()" class="submit-btn" style="width: auto; margin-top:0; padding: 10px 15px;">→</button>
+        </div>
+    </div>
 
-    // Zeige "KI denkt nach..."
-    const typing = document.getElementById("typing-indicator");
-    typing.style.display = "block";
-    const messagesDiv = document.getElementById("ki-chat-messages");
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    <script>
+        const knowledge = {
+            "brandschutz": "Im Brandfall: Ruhe bewahren. Alarm 112. Bewohner evakuieren.",
+            "hygiene": "Desinfizieren Sie Ihre Hände vor und nach jedem Patientenkontakt.",
+            "sturz": "Prüfen Sie die Vitalwerte und informieren Sie sofort die Pflegedienstleitung.",
+            "notfall": "Wählen Sie 112 und leisten Sie Erste Hilfe bis der Notarzt eintrifft."
+        };
 
-    setTimeout(() => {
-        typing.style.display = "none";
-        let response = "Dazu habe ich in dieser Demo-Datenbank noch keine Information. Möchten Sie, dass ich ein System für Ihre spezifischen Handbücher erstelle?";
-        
-        for (let key in knowledge) {
-            if (text.includes(key)) {
-                response = knowledge[key];
-                break;
-            }
+        function toggleChat() {
+            const chatBox = document.getElementById("ki-chat-box");
+            chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
         }
 
-        addMessage(response, "bot");
-        
-        // Nach der Antwort: CTA für Beratung
-        if (text.length > 3) {
+        document.getElementById("ki-chat-button").onclick = toggleChat;
+
+        function sendMessage() {
+            const input = document.getElementById("ki-user-input");
+            const text = input.value.trim().toLowerCase();
+            if (!text) return;
+
+            addMessage(input.value, "user");
+            input.value = "";
+
+            const typing = document.getElementById("typing-indicator");
+            typing.style.display = "block";
+
             setTimeout(() => {
-                addMessage("Möchten Sie wissen, wie wir dieses System mit Ihren eigenen Unterlagen füllen? <a href='kontakt.html' style='color:#0284c7; font-weight:bold;'>Hier Termin buchen.</a>", "bot");
+                typing.style.display = "none";
+                let response = "Interessante Frage. In einem echten System würde ich hier jetzt Ihre Handbücher auswerten. Wollen wir das für Sie umsetzen?";
+                
+                for (let key in knowledge) {
+                    if (text.includes(key)) {
+                        response = knowledge[key];
+                        break;
+                    }
+                }
+                addMessage(response, "bot");
             }, 1000);
         }
-    }, 1200);
-}
 
-function addMessage(text, sender) {
-    const messages = document.getElementById("ki-chat-messages");
-    const div = document.createElement("div");
-    div.className = "ki-bubble " + (sender === "user" ? "user-bubble" : "bot-bubble");
-    div.innerHTML = text; // innerHTML erlaubt Links
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-}
-</script>
+        function addMessage(text, sender) {
+            const messages = document.getElementById("ki-chat-messages");
+            const div = document.createElement("div");
+            div.className = "ki-bubble " + (sender === "user" ? "user-bubble" : "bot-bubble");
+            div.innerHTML = text;
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
 </body>
 </html>
